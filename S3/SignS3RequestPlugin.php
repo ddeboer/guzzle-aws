@@ -6,7 +6,7 @@
 
 namespace Guzzle\Service\Aws\S3;
 
-use Guzzle\Common\Subject\SubjectMediator;
+use Guzzle\Common\Event\Subject;
 use Guzzle\Http\Plugin\AbstractPlugin;
 
 /**
@@ -16,6 +16,8 @@ use Guzzle\Http\Plugin\AbstractPlugin;
  */
 class SignS3RequestPlugin extends AbstractPlugin
 {
+    protected $priority = -999;
+
     /**
      * @var S3Signature
      */
@@ -44,12 +46,26 @@ class SignS3RequestPlugin extends AbstractPlugin
     /**
      * {@inheritdoc}
      */
-    public function update(SubjectMediator $subject)
+    public function update(Subject $subject, $event, $context = null)
     {
-        if ($subject->getState() == 'request.create') {
-            $subject->getContext()->getPrepareChain()->addFilter(new \Guzzle\Service\Aws\S3\Filter\AddAuthHeader(array(
-                'signature' => $this->signature
-            )));
+        if ($event == 'request.before_send') {
+            
+            $path = $subject->getResourceUri() ?: '';
+
+            $headers = array_change_key_case($subject->getHeaders()->getAll());
+            if (!array_key_exists('Content-Length', $headers)) {
+                $headers['Content-Type'] = $subject->getHeader('Content-Type');
+            }
+
+            $canonicalizedString = $this->signature->createCanonicalizedString(
+                $headers, $path, $subject->getMethod()
+            );
+
+            $subject->setHeader(
+                'Authorization',
+                'AWS ' . $this->signature->getAccessKeyId(). ':'
+                    . $this->signature->signString($canonicalizedString)
+            );
         }
     }
 }

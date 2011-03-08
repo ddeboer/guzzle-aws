@@ -6,13 +6,19 @@
 
 namespace Guzzle\Service\Aws;
 
-use Guzzle\Common\Subject\SubjectMediator;
+use Guzzle\Common\Event\Subject;
+use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Plugin\AbstractPlugin;
 use Guzzle\Service\Aws\Filter\AddRequiredQueryStringFilter;
 use Guzzle\Service\Aws\Filter\QueryStringSignatureFilter;
 
 class QueryStringAuthPlugin extends AbstractPlugin
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $priority = -999;
+
     /**
      * @var Signature\AbstractSignature
      */
@@ -56,19 +62,66 @@ class QueryStringAuthPlugin extends AbstractPlugin
     }
 
     /**
+     * Add required query string fields to a request
+     *
+     * @param RequestInterface $request Request to modify
+     */
+    public function addRequiredQueryString(RequestInterface $request)
+    {
+        $qs = $request->getQuery();
+
+        // Add required parameters to the request
+        if (!$qs->hasKey('Timestamp')) {
+            $qs->set('Timestamp', gmdate('c'));
+        }
+
+        if (!$qs->hasKey('Version')) {
+            $qs->set('Version', $this->apiVersion);
+        }
+
+        if (!$qs->hasKey('SignatureVersion')) {
+            $qs->set('SignatureVersion', $this->signature->getVersion());
+        }
+
+        // Signature V2 and onward functionality
+        if ((int) $this->signature->getVersion() > 1 && !$qs->hasKey('SignatureMethod')) {
+            $qs->set('SignatureMethod', $this->signature->getAwsHashingAlgorithm());
+        }
+
+        if (!$qs->hasKey('AWSAccessKeyId')) {
+            $qs->set('AWSAccessKeyId', $this->signature->getAccessKeyId());
+        }
+    }
+
+    /**
+     * Add a query string signature to a request
+     *
+     * @param RequestInterface $request Request to modify
+     */
+    public function addQueryStringSignature(RequestInterface $request)
+    {
+        $qs = $request->getQuery();
+
+        // Create a string that needs to be signed using the request settings
+        $strToSign = $this->signature->calculateStringToSign($qs->getAll(), array(
+            'endpoint' => $request->getUrl(),
+            'method' => $request->getMethod()
+        ));
+
+        // Add the signature to the query string of the request
+        $qs->set('Signature', $this->signature->signString($strToSign));
+
+        return true;
+    }
+
+    /**
      * {@inheritdoc}
      */
-    public function update(SubjectMediator $subject)
+    public function update(Subject $subject, $event, $context = null)
     {
-        if ($subject->getState() == 'request.create') {
-            $subject->getContext()->getPrepareChain()
-                ->addFilter(new AddRequiredQueryStringFilter(array(
-                    'signature' => $this->signature,
-                    'version' => $this->apiVersion
-                )))
-                ->addFilter(new QueryStringSignatureFilter(array(
-                    'signature' => $this->signature
-                )));
+        if ($subject instanceof RequestInterface && $event == 'request.before_send') {
+            $this->addRequiredQueryString($subject);
+            $this->addQueryStringSignature($subject);
         }
     }
 }

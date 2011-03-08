@@ -50,13 +50,10 @@ class S3Builder extends AbstractBuilder
 
         // If Amazon DevPay tokens were provided, then add a DevPay filter
         if ($this->config->get('devpay_user_token') && $this->config->get('devpay_product_token')) {
-            $config = $this->config;;
-            $client->getCreateRequestChain()->addFilter(new ClosureFilter(function($request) use ($config) {
-                $request->getPrepareChain()->addFilter(new DevPayTokenHeaders(array(
-                    'user_token' => $config->get('devpay_user_token'),
-                    'product_token' => $config->get('devpay_product_token'),
-                )));
-            }));
+            $client->attachPlugin(new DevPayPlugin(
+                $this->config->get('devpay_user_token'),
+                $this->config->get('devpay_product_token')
+            ));
         }
 
         // Create the actual client object

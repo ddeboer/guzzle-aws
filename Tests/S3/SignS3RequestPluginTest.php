@@ -6,6 +6,12 @@
 
 namespace Guzzle\Service\Aws\Tests\S3;
 
+use Guzzle\Common\Event\EventManager;
+use Guzzle\Http\Message\RequestFactory;
+use Guzzle\Service\Aws\S3\S3Builder;
+use Guzzle\Service\Aws\S3\S3Signature;
+use Guzzle\Service\Aws\S3\SignS3RequestPlugin;
+
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
  */
@@ -16,16 +22,30 @@ class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testSignsS3Requests()
     {
-        $signature = new \Guzzle\Service\Aws\S3\S3Signature('a', 'b');
-        $plugin = new \Guzzle\Service\Aws\S3\SignS3RequestPlugin($signature);
+        $signature = new S3Signature('a', 'b');
+        $plugin = new SignS3RequestPlugin($signature);
         $this->assertSame($signature, $plugin->getSignature());
+    }
 
-        $request = \Guzzle\Http\Message\RequestFactory::getInstance()->newRequest('GET', 'http://www.test.com/');
+    /**
+     * @covers Guzzle\Service\Aws\S3\SignS3RequestPlugin
+     */
+    public function testAddsAuthorizationHeaders()
+    {
+        $this->getServer()->enqueue("HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
 
-        $mediator = new \Guzzle\Common\Subject\SubjectMediator($request);
-        $mediator->notify('request.create', $request);
+        $builder = new S3Builder(array(
+            'base_url' => $this->getServer()->getUrl(),
+            'access_key_id' => 'a',
+            'secret_access_key' => 's'
+        ));
 
-        $plugin->update($mediator);
-        $this->assertTrue($request->getPrepareChain()->hasFilter('Guzzle\\Service\\Aws\\S3\\Filter\\AddAuthHeader'));
+        $client = $builder->build();
+
+        $request = $client->getRequest('GET');
+        $request->send();
+
+        $this->assertTrue($request->hasHeader('Authorization'));
+        $this->assertContains('AWS a:', $request->getHeader('Authorization'));
     }
 }

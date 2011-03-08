@@ -6,7 +6,7 @@
 
 namespace Guzzle\Service\Aws\Tests;
 
-use Guzzle\Common\Subject\SubjectMediator;
+use Guzzle\Common\Event\EventManager;
 use Guzzle\Http\Message\RequestFactory;
 use Guzzle\Service\Aws\Signature\SignatureV2;
 use Guzzle\Service\Aws\QueryStringAuthPlugin;
@@ -18,8 +18,6 @@ class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
      * @covers Guzzle\Service\Aws\QueryStringAuthPlugin
-     * @covers Guzzle\Service\Aws\Filter\AddRequiredQueryStringFilter
-     * @covers Guzzle\Service\Aws\Filter\QueryStringSignatureFilter
      */
     public function testAddsQueryStringAuth()
     {
@@ -30,15 +28,10 @@ class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('2009-04-15', $plugin->getApiVersion());
 
         $request = RequestFactory::getInstance()->newRequest('GET', 'http://www.test.com/');
-
-        $mediator = new SubjectMediator($request);
-        $mediator->notify('request.create', $request);
-
-        $plugin->update($mediator);
-        $this->assertTrue($request->getPrepareChain()->hasFilter('Guzzle\\Service\\Aws\\Filter\\AddRequiredQueryStringFilter'));
-        $this->assertTrue($request->getPrepareChain()->hasFilter('Guzzle\\Service\\Aws\\Filter\\QueryStringSignatureFilter'));
-
-        $request->getPrepareChain()->process($request);
+        $plugin->attach($request);
+        
+        $request->getEventManager()->notify('request.before_send');
+        
         $qs = $request->getQuery();
         $this->assertTrue($qs->hasKey('Timestamp'));
         $this->assertEquals('2009-04-15', $qs->get('Version'));

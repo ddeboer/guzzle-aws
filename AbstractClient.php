@@ -6,7 +6,6 @@
 
 namespace Guzzle\Service\Aws;
 
-use Guzzle\Common\Subject\Observer;
 use Guzzle\Service\Client;
 
 /**
