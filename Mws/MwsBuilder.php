@@ -38,8 +38,10 @@ class MwsBuilder extends AbstractBuilder
         $commandFactory = new ConcreteCommandFactory($serviceDescription);
 
         $client = new MwsClient($this->config, $serviceDescription, $commandFactory);
+        // Sign the request last
         $client->getEventManager()->attach(
-            new QueryStringAuthPlugin($this->signature, $this->config->get('version', self::VERSION))
+            new QueryStringAuthPlugin($this->signature, $this->config->get('version', self::VERSION)),
+            -9999
         );
 
         return $client;

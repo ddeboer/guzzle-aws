@@ -49,8 +49,10 @@ class SimpleDbBuilder extends AbstractBuilder
         $commandFactory = new ConcreteCommandFactory($serviceDescription);
 
         $client = new SimpleDbClient($this->config, $serviceDescription, $commandFactory);
+        // Sign the request last
         $client->getEventManager()->attach(
-            new QueryStringAuthPlugin($this->signature, $this->config->get('version', '2009-04-15'))
+            new QueryStringAuthPlugin($this->signature, $this->config->get('version', '2009-04-15')),
+            -9999
         );
         
         return $client;
