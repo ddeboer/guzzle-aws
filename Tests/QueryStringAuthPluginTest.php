@@ -28,7 +28,7 @@ class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('2009-04-15', $plugin->getApiVersion());
 
         $request = RequestFactory::getInstance()->newRequest('GET', 'http://www.test.com/');
-        $plugin->attach($request);
+        $request->getEventManager()->attach($plugin);
         
         $request->getEventManager()->notify('request.before_send');
         

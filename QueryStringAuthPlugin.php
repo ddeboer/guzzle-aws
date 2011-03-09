@@ -6,13 +6,13 @@
 
 namespace Guzzle\Service\Aws;
 
+use Guzzle\Common\Event\Observer;
 use Guzzle\Common\Event\Subject;
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Http\Plugin\AbstractPlugin;
 use Guzzle\Service\Aws\Filter\AddRequiredQueryStringFilter;
 use Guzzle\Service\Aws\Filter\QueryStringSignatureFilter;
 
-class QueryStringAuthPlugin extends AbstractPlugin
+class QueryStringAuthPlugin implements Observer
 {
     /**
      * {@inheritdoc}

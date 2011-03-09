@@ -6,6 +6,7 @@
 
 namespace Guzzle\Service\Aws\S3;
 
+use Guzzle\Common\Event\Observer;
 use Guzzle\Common\Event\Subject;
 use Guzzle\Http\Plugin\AbstractPlugin;
 
@@ -14,10 +15,8 @@ use Guzzle\Http\Plugin\AbstractPlugin;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  */
-class SignS3RequestPlugin extends AbstractPlugin
+class SignS3RequestPlugin implements Observer
 {
-    protected $priority = -999;
-
     /**
      * @var S3Signature
      */

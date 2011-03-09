@@ -17,10 +17,10 @@ use Guzzle\Service\Aws\QueryStringAuthPlugin;
  */
 class MwsBuilder extends AbstractBuilder
 {
+    const VERSION = '2009-01-01';
+    
     protected $signature;
     protected $endpoint;
-
-    const VERSION = '2009-01-01';
 
     /**
      * Build client
@@ -38,7 +38,9 @@ class MwsBuilder extends AbstractBuilder
         $commandFactory = new ConcreteCommandFactory($serviceDescription);
 
         $client = new MwsClient($this->config, $serviceDescription, $commandFactory);
-        $client->attachPlugin(new QueryStringAuthPlugin($this->signature, $this->config->get('version', self::VERSION)));
+        $client->getEventManager()->attach(
+            new QueryStringAuthPlugin($this->signature, $this->config->get('version', self::VERSION))
+        );
 
         return $client;
     }

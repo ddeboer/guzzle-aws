@@ -48,7 +48,9 @@ class SqsBuilder extends AbstractBuilder
         $commandFactory = new ConcreteCommandFactory($serviceDescription);
 
         $client = new SqsClient($this->config, $serviceDescription, $commandFactory);
-        $client->attachPlugin(new QueryStringAuthPlugin($this->signature, $this->config->get('version', '2009-02-01')));
+        $client->getEventManager()->attach(
+            new QueryStringAuthPlugin($this->signature, $this->config->get('version', '2009-02-01'))
+        );
 
         return $client;
     }

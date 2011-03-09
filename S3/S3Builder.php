@@ -45,15 +45,19 @@ class S3Builder extends AbstractBuilder
             if (!$this->signature) {
                 $this->signature = new S3Signature($this->config->get('access_key_id'), $this->config->get('secret_access_key'));
             }
-            $client->attachPlugin(new SignS3RequestPlugin($this->signature));
+            $client->getEventManager()->attach(
+                new SignS3RequestPlugin($this->signature)
+            );
         }
 
         // If Amazon DevPay tokens were provided, then add a DevPay filter
         if ($this->config->get('devpay_user_token') && $this->config->get('devpay_product_token')) {
-            $client->attachPlugin(new DevPayPlugin(
-                $this->config->get('devpay_user_token'),
-                $this->config->get('devpay_product_token')
-            ));
+            $client->getEventManager()->attach(
+                new DevPayPlugin(
+                    $this->config->get('devpay_user_token'),
+                    $this->config->get('devpay_product_token')
+                )
+            );
         }
 
         // Create the actual client object

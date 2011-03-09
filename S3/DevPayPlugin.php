@@ -6,6 +6,7 @@
 
 namespace Guzzle\Service\Aws\S3;
 
+use Guzzle\Common\Event\Observer;
 use Guzzle\Common\Event\Subject;
 use Guzzle\Http\Plugin\AbstractPlugin;
 
@@ -14,9 +15,8 @@ use Guzzle\Http\Plugin\AbstractPlugin;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  */
-class DevPayPlugin extends AbstractPlugin
+class DevPayPlugin implements Observer
 {
-    protected $priority = -998;
     private $userToken;
     private $productToken;
 

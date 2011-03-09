@@ -188,7 +188,8 @@ class S3Client extends AbstractClient
         }
 
         $expires = time() + (($duration) ? $duration : 60);
-        $plugin = $this->getPlugin('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin');
+        $plugin = $this->getEventManager()->getAttached('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin');
+        $plugin = isset($plugin[0]) ? $plugin[0] : false;
         $isSigned = ($plugin != false);
         $xAmzHeaders = $torrentStr = '';
         $url = 'http://' . $bucket . (($cnamed) ? '' : ('.' . $this->config->get('region')));

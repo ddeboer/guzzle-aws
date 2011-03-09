@@ -28,6 +28,6 @@ class SimpleDbBuilderTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertInstanceOf('Guzzle\\Service\\Aws\\SimpleDb\\SimpleDbClient', $client);
 
         // Make sure the query string auth signing plugin was attached
-        $this->assertTrue($client->hasPlugin('Guzzle\Service\Aws\QueryStringAuthPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\QueryStringAuthPlugin'));
     }
 }
