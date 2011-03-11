@@ -23,7 +23,7 @@ abstract class AbstractQueueUrlCommand extends AbstractCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest('GET');
+        $this->request = $this->client->createRequest('GET');
         $this->request->setUrl($this->get('queue_url') . '?Action=' . $this->action);
     }
 

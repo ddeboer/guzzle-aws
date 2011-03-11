@@ -37,7 +37,7 @@ class S3BuilderTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
 
         // Make sure the builder added the Authentication filter for preparing requests
-        $request = $client->getRequest('GET');
+        $request = $client->createRequest();
         $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin'));
         $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
     }

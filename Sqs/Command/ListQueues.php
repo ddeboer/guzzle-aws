@@ -22,7 +22,7 @@ class ListQueues extends AbstractCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest(RequestInterface::GET);
+        $this->request = $this->client->createRequest(RequestInterface::GET);
         $this->request->getQuery()->set('Action', 'ListQueues');
 
         if ($this->get('queue_name_prefix')) {

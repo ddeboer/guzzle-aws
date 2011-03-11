@@ -42,7 +42,7 @@ class ListDomains extends AbstractSimpleDbCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest(RequestInterface::GET);
+        $this->request = $this->client->createRequest(RequestInterface::GET);
         $this->request->getQuery()->set('Action', 'ListDomains');
 
         if ($this->get('max_domains')) {

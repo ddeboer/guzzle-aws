@@ -20,7 +20,7 @@ class AbstractSimpleDbCommandRequiresDomain extends AbstractSimpleDbCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest(RequestInterface::GET);
+        $this->request = $this->client->createRequest(RequestInterface::GET);
         $this->request->getQuery()
             ->set('Action', $this->action)
             ->set('DomainName', $this->get('domain'));

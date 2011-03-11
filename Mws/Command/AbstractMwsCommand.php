@@ -36,7 +36,7 @@ class AbstractMwsCommand extends AbstractCommand
     protected function build()
     {
         if (!$this->request) {
-            $this->request = $this->client->getRequest($this->requestMethod);
+            $this->request = $this->client->createRequest($this->requestMethod);
         }
 
         $this->request->getQuery()

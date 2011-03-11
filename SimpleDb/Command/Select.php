@@ -35,7 +35,7 @@ class Select extends AbstractSimpleDbCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest(RequestInterface::GET);
+        $this->request = $this->client->createRequest(RequestInterface::GET);
         $this->request->getQuery()->set('Action', $this->action);
         $this->request->getQuery()->set('SelectExpression', $this->get('select_expression'));
 

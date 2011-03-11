@@ -42,7 +42,7 @@ class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
 
         $client = $builder->build();
 
-        $request = $client->getRequest('GET');
+        $request = $client->createRequest();
         $request->send();
 
         $this->assertTrue($request->hasHeader('Authorization'));

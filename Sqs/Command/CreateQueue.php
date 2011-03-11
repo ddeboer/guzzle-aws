@@ -23,7 +23,7 @@ class CreateQueue extends AbstractCommand
      */
     protected function build()
     {
-        $this->request = $this->client->getRequest(RequestInterface::GET);
+        $this->request = $this->client->createRequest(RequestInterface::GET);
         $this->request->getQuery()->set('Action', 'CreateQueue')
             ->set('QueueName', $this->get('queue_name'));
 

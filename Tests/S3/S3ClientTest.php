@@ -46,7 +46,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      * @covers Guzzle\Service\Aws\S3\S3Client::setForcePathHostingBuckets
      * @covers Guzzle\Service\Aws\S3\S3Client::isPathHostingBuckets
      * @covers Guzzle\Service\Aws\S3\S3Client::getS3Request
-     * @covers Guzzle\Service\Aws\S3\S3Client::getRequest
+     * @covers Guzzle\Service\Aws\S3\S3Client::createRequest
      */
     public function testAllowsPathHostingForOldBuckets()
     {
