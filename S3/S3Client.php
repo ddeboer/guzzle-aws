@@ -148,7 +148,7 @@ class S3Client extends AbstractClient
         if ($this->forcePathHosting) {
             $url = $this->getBaseUrl() . $bucket;
         } else {
-            $url = $this->injectConfig('{{ protocol }}://' . $bucket . '.{{ region }}/');
+            $url = $this->inject('{{ protocol }}://' . $bucket . '.{{ region }}/');
         }
 
         if ($key) {
