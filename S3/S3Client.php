@@ -114,12 +114,10 @@ class S3Client extends AbstractClient
 
     /**
      * {@inheritdoc}
-     *
-     * Configures a request for use with Amazon S3
      */
-    public function createRequest($config = array())
+    public function createRequest($method = RequestInterface::GET, $uri = null, $inject = null)
     {
-        $request = parent::createRequest($config);
+        $request = parent::createRequest($method, $uri, $inject);
         $request->setHeader('Date', Guzzle::getHttpDate('now'))
                 ->setHeader('Host', $request->getHost());
 
