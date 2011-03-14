@@ -7,9 +7,7 @@
 namespace Guzzle\Service\Aws\S3;
 
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Common\Filter\ClosureFilter;
 use Guzzle\Service\Aws\AbstractBuilder;
-use Guzzle\Service\Aws\S3\Filter\DevPayTokenHeaders;
 use Guzzle\Service\ServiceDescription;
 use Guzzle\Service\Command\ConcreteCommandFactory;
 use Guzzle\Service\DescriptionBuilder\ConcreteDescriptionBuilder;
