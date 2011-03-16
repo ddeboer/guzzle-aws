@@ -14,7 +14,7 @@ use Guzzle\Common\XmlElement;
  *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
-class AbstractFeed
+abstract class AbstractFeed
 {
     /**
      * @var MwsClient
@@ -50,6 +50,8 @@ class AbstractFeed
 
     /**
      * Initialize feed
+     *
+     * @codeCoverageIgnore
      */
     public function init()
     {

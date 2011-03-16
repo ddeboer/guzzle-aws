@@ -36,11 +36,13 @@ class ResultIterator extends ResourceIterator
      */
     protected function processResult(\SimpleXMLElement $result)
     {
+        // @codeCoverageIgnoreStart
         if ($result->{$this->data['result_node']}) {
             $records = $result->{$this->data['result_node']}->toArray();
         } else {
             $records = $result->xpath($this->data['record_path']);
         }
+        // @codeCoverageIgnoreEnd
         
         $this->resourceList = $records;
         $this->retrievedCount += count($this->resourceList);

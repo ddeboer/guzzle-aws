@@ -38,11 +38,6 @@ class GetReportList extends AbstractIterableMwsCommand
     /**
      * {@inheritdoc}
      */
-    protected $resultNode = 'ReportInfo';
-
-    /**
-     * {@inheritdoc}
-     */
     protected $recordPath = '//ReportInfo';
 
     /**

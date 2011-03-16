@@ -18,8 +18,7 @@ use Guzzle\Common\Inflector;
  * @guzzle secret_access_key required="true" doc="AWS Secret Access Key"
  * @guzzle application_name required="true" doc="Application name"
  * @guzzle application_version required="true" doc="Application version"
- * @guzzle base_url required="true" default="{{ protocol }}://{{ region }}/" doc="SQS service base URL"
- * @codeCoverageIgnore
+ * @guzzle base_url required="true" default="https://mws.amazonservices.com/" doc="MWS service base URL"
  */
 class MwsClient extends Client
 {

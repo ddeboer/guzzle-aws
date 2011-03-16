@@ -19,7 +19,7 @@
             Set the following value to "1" if your Guzzle service contains
             multiple clients under one service namespace (e.g. Aws\S3, Aws\Sqs)
         -->
-        <server name="GUZZLE_SERVICE_MULTI" value="0" />
+        <server name="GUZZLE_SERVICE_MULTI" value="1" />
     </php>
 
     <testsuites>

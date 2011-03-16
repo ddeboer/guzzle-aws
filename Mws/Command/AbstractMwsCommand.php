@@ -106,11 +106,13 @@ class AbstractMwsCommand extends AbstractCommand
             // Get result object from XML response
             $this->result = new XmlElement($this->result->asXML());
 
+            // @codeCoverageIgnoreStart
             if (empty($this->resultNode)) {
                 $resultNode = $this->action . 'Result';
             } else {
                 $resultNode = $this->resultNode;
             }
+            // @codeCoverageIgnoreEnd
             $this->result = $this->result->{$resultNode};
 
             // Iterable result

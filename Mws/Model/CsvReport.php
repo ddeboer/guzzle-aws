@@ -42,7 +42,9 @@ class CsvReport implements IteratorAggregate, Countable
         if (is_array($data)) {
             
             if (!isset($data[0])) {
+                // @codeCoverageIgnoreStart
                 throw new InvalidArgumentException('Data rows must be numerically keyed');
+                // @codeCoverageIgnoreEnd
             }
             $this->fieldNames = array_keys($data[0]);
             $this->rows = $data;

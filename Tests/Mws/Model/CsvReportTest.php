@@ -19,6 +19,7 @@ class CsvReportTest extends GuzzleTestCase
         $data .= "4\t5\t6\n";
 
         $report = new CsvReport($data);
+        $report->__construct($data);
 
         // Expected parsed format
         $expected = array(
@@ -40,6 +41,9 @@ class CsvReportTest extends GuzzleTestCase
 
         $report = new CsvReport($expected);
         $this->assertEquals($expected, $report->getRows());
+
+        $str = $report->__toString();
+        $this->assertInternalType('string', $str);
     }
 
     public function testBadCsvData()

@@ -12,6 +12,8 @@ namespace Guzzle\Service\Aws\Mws\Command;
  *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
+// @codeCoverageIgnoreStart
 interface IterableInterface
 {
 }
+// @codeCoverageIgnoreEnd
