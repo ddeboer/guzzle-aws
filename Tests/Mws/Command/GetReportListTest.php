@@ -8,6 +8,8 @@ use Guzzle\Service\Aws\Mws\Type;
 /**
  * @covers Guzzle\Service\Aws\Mws\Command\GetReportList
  * @covers Guzzle\Service\Aws\Mws\Command\AbstractMwsCommand
+ * @covers Guzzle\Service\Aws\Mws\Command\IterableInterface
+ * 
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportListTest extends GuzzleTestCase
@@ -36,6 +38,7 @@ class GetReportListTest extends GuzzleTestCase
 
         // Response should be a SimpleXMLElement
         $response = $client->execute($command);
-        $this->assertInstanceOf('\SimpleXMLElement', $response);
+        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
+
     }
 }

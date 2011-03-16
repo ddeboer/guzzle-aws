@@ -34,6 +34,6 @@ class GetReportRequestListText extends GuzzleTestCase
         $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportRequestList', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('\SimpleXMLElement', $response);
+        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
     }
 }

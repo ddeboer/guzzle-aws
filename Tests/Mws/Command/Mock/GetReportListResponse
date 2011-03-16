@@ -25,62 +25,6 @@ Transfer-Encoding: chunked
                   <AvailableDate>2011-01-22T00:06:53+00:00</AvailableDate>
                   <Acknowledged>false</Acknowledged>
             </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3399341603</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746867284</ReportRequestId>
-                  <AvailableDate>2011-01-21T23:07:14+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3399128373</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746763638</ReportRequestId>
-                  <AvailableDate>2011-01-21T22:07:11+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398950573</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746669334</ReportRequestId>
-                  <AvailableDate>2011-01-21T21:07:08+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398790093</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746580674</ReportRequestId>
-                  <AvailableDate>2011-01-21T20:07:09+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398637973</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746487836</ReportRequestId>
-                  <AvailableDate>2011-01-21T19:08:38+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398480013</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746399176</ReportRequestId>
-                  <AvailableDate>2011-01-21T18:07:07+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398322053</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746309078</ReportRequestId>
-                  <AvailableDate>2011-01-21T17:07:06+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
-            <ReportInfo>
-                  <ReportId>3398160733</ReportId>
-                  <ReportType>_GET_MERCHANT_LISTINGS_DATA_</ReportType>
-                  <ReportRequestId>3746219734</ReportRequestId>
-                  <AvailableDate>2011-01-21T16:07:09+00:00</AvailableDate>
-                  <Acknowledged>false</Acknowledged>
-            </ReportInfo>
       </GetReportListResult>
       <ResponseMetadata>
             <RequestId>db80f575-55ec-4943-ac26-9f68c31a9398</RequestId>

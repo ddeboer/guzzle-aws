@@ -34,6 +34,6 @@ class GetFeedSubmissionListTest extends GuzzleTestCase
         $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionList', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('\SimpleXMLElement', $response);
+        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
     }
 }

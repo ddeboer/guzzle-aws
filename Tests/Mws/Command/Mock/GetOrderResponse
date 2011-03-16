@@ -1,0 +1,42 @@
+HTTP/1.1 200 OK
+Date: Fri, 21 Jan 2011 17:48:29 GMT
+Server: Server
+Content-Type: text/xml
+Vary: Accept-Encoding,User-Agent
+Content-Encoding: gzip
+Transfer-Encoding: chunked
+
+<?xml version="1.0"?>
+<GetOrderResponse xmlns="https://mws.amazonservices.com/Orders/2011-01-01">
+  <GetOrderResult>
+    <Orders>
+      <Order>
+        <AmazonOrderId>104-1917270-6910603</AmazonOrderId>
+        <PurchaseDate>2011-03-16T20:14:03.000Z</PurchaseDate>
+        <LastUpdateDate>2011-03-16T20:30:23.000Z</LastUpdateDate>
+        <OrderStatus>Unshipped</OrderStatus>
+        <SalesChanel>AmazonCheckout</SalesChanel>
+        <ShipServiceLevel>Std Cont US Street Addr</ShipServiceLevel>
+        <FulfillmentChannel>MFN</FulfillmentChannel>
+        <OrderTotal>
+          <CurrencyCode>USD</CurrencyCode>
+          <Amount>74.99</Amount>
+        </OrderTotal>
+        <ShippingAddress>
+          <Name>John Doe</Name>
+          <AddressLine1>1234 Anystreet</AddressLine1>
+          <City>Anytown</City>
+          <StateOrRegion>CA</StateOrRegion>
+          <PostalCode>90210</PostalCode>
+          <CountryCode>US</CountryCode>
+          <Phone>5551234567</Phone>
+        </ShippingAddress>
+        <NumberOfItemsShipped>0</NumberOfItemsShipped>
+        <NumberOfItemsUnshipped>1</NumberOfItemsUnshipped>
+      </Order>
+    </Orders>
+  </GetOrderResult>
+  <ResponseMetadata>
+    <RequestId>5d80214a-4228-43f8-aed6-8710774ca2c4</RequestId>
+  </ResponseMetadata>
+</GetOrderResponse>

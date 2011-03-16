@@ -25,6 +25,6 @@ class GetReportScheduleListTest extends GuzzleTestCase
         $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportScheduleList', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('\SimpleXMLElement', $response);
+        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
     }
 }
