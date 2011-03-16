@@ -30,12 +30,17 @@ namespace Guzzle\Service\Aws\Mws\Command;
  * @guzzle requested_from_date doc="Begin date"
  * @guzzle requested_to_date doc="End date"
  */
-class GetReportRequestList extends AbstractMwsCommand
+class GetReportRequestList extends AbstractIterableMwsCommand
 {
     /**
      * {@inheritdoc}
      */
     protected $action = 'GetReportRequestList';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $resultNode = 'ReportRequestInfo';
 
     /**
      * Set report request ID list

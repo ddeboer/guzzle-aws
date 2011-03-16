@@ -21,6 +21,9 @@ namespace Guzzle\Service\Aws\Mws\Command;
  */
 class GetReportListByNextToken extends AbstractMwsCommand
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $action = 'GetReportListByNextToken';
 
     /**

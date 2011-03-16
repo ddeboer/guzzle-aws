@@ -31,6 +31,11 @@ class GetReport extends AbstractMwsCommand
     protected $action = 'GetReport';
 
     /**
+     * {@inheritdoc}
+     */
+    protected $recordPath = '//Message/OrderReport';
+
+    /**
      * Set report ID to retrieve
      *
      * @param int $reportId

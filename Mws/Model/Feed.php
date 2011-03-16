@@ -9,6 +9,8 @@ namespace Guzzle\Service\Aws\Mws\Model;
 use Guzzle\Common\XmlElement;
 
 /**
+ * Data feed builder class
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class Feed
@@ -37,9 +39,19 @@ class Feed
     }
 
     /**
+     * Alias of toXml()
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toXml();
+    }
+
+    /**
      * Get message node
      *
-     * @return Guzzle\Common\XmlElement
+     * @return XmlElement
      */
     public function getMessage()
     {
@@ -67,7 +79,7 @@ class Feed
     /**
      * Get XML object
      *
-     * @return Guzzle\Common\Xml\Element
+     * @return Guzzle\Common\XmlElement
      */
     public function getXml()
     {
@@ -90,15 +102,5 @@ class Feed
         $doc->loadXML($xml);
 
         return $doc->saveXML();
-    }
-
-    /**
-     * Alias of toXml()
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->toXml();
     }
 }

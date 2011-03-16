@@ -20,12 +20,17 @@ namespace Guzzle\Service\Aws\Mws\Command;
  *
  * @guzzle report_type_list doc="Array of ReportType values to filter by"
  */
-class GetReportScheduleList extends AbstractMwsCommand
+class GetReportScheduleList extends AbstractIterableMwsCommand
 {
     /**
      * {@inheritdoc}
      */
     protected $action = 'GetReportScheduleList';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $resultNode = 'ReportSchedule';
 
     /**
      * Set report type list

@@ -10,6 +10,8 @@ use Guzzle\Service\Command\AbstractCommand;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Common\Inflector;
 use Guzzle\Service\Aws\Mws\Model\CsvReport;
+use Guzzle\Service\Aws\Mws\Model\ResultIterator;
+use Guzzle\Common\XmlElement;
 
 /**
  * MWS command base class
@@ -31,16 +33,26 @@ class AbstractMwsCommand extends AbstractCommand
     protected $requestMethod = RequestInterface::GET;
 
     /**
+     * @var string xpath query to records in result
+     */
+    protected $recordPath;
+
+    /**
      * Prepare command before execution
      */
     protected function build()
     {
+        if (!$this->action) {
+            // @codeCoverageIgnoreStart
+            throw new \Exception('You must define an action name');
+            // @codeCoverageIgnoreEnd
+        }
+
         if (!$this->request) {
             $this->request = $this->client->createRequest($this->requestMethod);
         }
 
-        $this->request->getQuery()
-            ->set('Action', $this->action);
+        $this->request->getQuery()->set('Action', $this->action);
 
         // Set authorization fields
         $config = $this->getClient()->getConfig();
@@ -82,11 +94,54 @@ class AbstractMwsCommand extends AbstractCommand
     protected function process()
     {
         parent::process();
-        
+
+        if (strpos($this->getResponse()->getBody(true), '<?xml') !== false) {
+            $body = $this->getResponse()->getBody(true);
+            $body = preg_replace('# xmlns=[^ >]*#', '', $body);
+            $this->result = new \SimpleXMLElement($body);
+        }
+
         if ($this->result instanceof \SimpleXMLElement) {
+
             // Get result object from XML response
-            $node = $this->action . 'Result';
-            $this->result = $this->result->{$node};
+            $this->result = new XmlElement($this->result->asXML());
+
+            if (empty($this->resultNode)) {
+                $resultNode = $this->action . 'Result';
+            } else {
+                $resultNode = $this->resultNode;
+            }
+            $this->result = $this->result->{$resultNode};
+
+            // Iterable result
+            if ($this instanceof AbstractIterableMwsCommand || $this instanceof AbstractIterableMwsOrderCommand) {
+                $nextCommand = Inflector::snake($this->action . 'ByNextToken');
+
+                $records = $this->result;
+                if ($this->recordPath) {
+                    $records = $this->result->xpath($this->recordPath);
+                }
+
+                // Get next token unless HasNext property is set to false
+                $nextToken = (string)$this->result->NextToken;
+                if (!empty($this->result->HasNext)) {
+                    if ($this->result->HasNext == 'false') {
+                        $nextToken = null;
+                    }
+                }
+
+                $this->result = new ResultIterator($this->getClient(), array(
+                    'next_token'    => $nextToken,
+                    'next_command'  => $nextCommand,
+                    'resources'     => $records,
+                    'result_node'   => $resultNode,
+                    'record_path'   => $this->recordPath
+                ));
+                
+            } else if (!empty($this->recordPath)) {
+                $this->result = $this->result->xpath($this->recordPath);
+            }
+
         } else if ($this->result->getContentType() == 'application/octet-stream') {
             // Get CSV data array
             $this->result = new CsvReport($this->getResponse()->getBody(true));

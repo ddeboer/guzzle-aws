@@ -18,7 +18,7 @@ use Guzzle\Service\Aws\QueryStringAuthPlugin;
 class MwsBuilder extends AbstractBuilder
 {
     const VERSION = '2009-01-01';
-    
+
     protected $signature;
     protected $endpoint;
 

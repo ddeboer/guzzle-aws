@@ -28,12 +28,22 @@ namespace Guzzle\Service\Aws\Mws\Command;
  * @guzzle available_to_date doc="Most recent report date"
  * @guzzle report_request_id_list doc="An array of report request IDs"
  */
-class GetReportList extends AbstractMwsCommand
+class GetReportList extends AbstractIterableMwsCommand
 {
     /**
      * {@inheritdoc}
      */
     protected $action = 'GetReportList';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $resultNode = 'ReportInfo';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $recordPath = '//ReportInfo';
 
     /**
      * Set the maximum number of results to return

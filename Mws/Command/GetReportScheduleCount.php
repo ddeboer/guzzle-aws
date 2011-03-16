@@ -37,7 +37,7 @@ class GetReportScheduleCount extends AbstractMwsCommand
     public function setReportTypeList(array $reportTypeList)
     {
         return $this->set('report_type_list', array(
-            'Type'  => $reportTypeList
+            'Type' => $reportTypeList
         ));
     }
 }

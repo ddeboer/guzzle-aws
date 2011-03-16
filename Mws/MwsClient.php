@@ -1,12 +1,9 @@
 <?php
-/**
- * @package Guzzle PHP <http://www.guzzlephp.org>
- * @license See the LICENSE file that was distributed with this source code.
- */
 
 namespace Guzzle\Service\Aws\Mws;
 
 use Guzzle\Service\Client;
+use Guzzle\Common\Inflector;
 
 /**
  * Client for Amazon Marketplace Web Service
@@ -26,4 +23,18 @@ use Guzzle\Service\Client;
  */
 class MwsClient extends Client
 {
+    /**
+     * Get feed class
+     * 
+     * @param string $feedType The type of feed ot retrieve
+     *
+     * @return \Guzzle\Service\Aws\Mws\Model\Feed\AbstractFeed
+     */
+    public function getFeed($feedType)
+    {
+        $class = 'Guzzle\\Service\\Aws\\Mws\\Model\\Feed\\' 
+            . ucfirst(Inflector::camel($feedType));
+
+        return new $class($this);
+    }
 }
