@@ -11,6 +11,10 @@ use Guzzle\Service\ResourceIterator;
 /**
  * Iterator for commands with iterable results
  *
+ * Any commany which can issue a next token will return an instance
+ * of this class as it's result. Iterating over this object with foreach()
+ * will automatically get additional pages as needed.
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class ResultIterator extends ResourceIterator
