@@ -12,6 +12,8 @@ use Guzzle\Service\ServiceException;
  * Amazon Web Services exception
  *
  * @author Michael Dowling <michael@guzzlephp.org>
+ *
+ * @codeCoverageIgnore
  */
 class AwsException extends ServiceException
 {
