@@ -7,6 +7,8 @@
 namespace Guzzle\Service\Aws\Mws\Type;
 
 /**
+ * Feed types
+ * 
  * @author Harold Asbridge <harold@shoebacca.com>
  * @codeCoverageIgnore
  */

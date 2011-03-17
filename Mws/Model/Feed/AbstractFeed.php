@@ -12,6 +12,9 @@ use Guzzle\Common\XmlElement;
 /**
  * Abstract feed class
  *
+ * This is used to build the basic structure
+ * of a feed, to be used with the SubmitFeed command.
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 abstract class AbstractFeed

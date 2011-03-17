@@ -7,6 +7,8 @@
 namespace Guzzle\Service\Aws\Mws\Type;
 
 /**
+ * Report types
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  * @codeCoverageIgnore
  */

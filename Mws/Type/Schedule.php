@@ -7,6 +7,8 @@
 namespace Guzzle\Service\Aws\Mws\Type;
 
 /**
+ * Scheduled report interval values
+ * 
  * @author Harold Asbridge <harold@shoebacca.com>
  * @codeCoverageIgnore
  */

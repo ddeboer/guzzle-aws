@@ -11,6 +11,9 @@ use Guzzle\Common\XmlElement;
 /**
  * Order fulfillment feed
  *
+ * This feed will update amazon orders with the provided tracking number(s),
+ * which will then cause amazon to send a notification email to the customer.
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class OrderFulfillment extends AbstractFeed

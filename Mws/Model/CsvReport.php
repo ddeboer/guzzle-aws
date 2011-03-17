@@ -15,6 +15,10 @@ use \UnexpectedValueException;
 /**
  * CSV report model
  *
+ * For MWS commands that return CSV data instead of XML, this class
+ * is used to wrap the response. The CSV data is converted to an array
+ * of rows, and each row is an array of field => value pairs.
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class CsvReport implements IteratorAggregate, Countable

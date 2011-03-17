@@ -7,6 +7,8 @@
 namespace Guzzle\Service\Aws\Mws\Type;
 
 /**
+ * Report processing statuses
+ *
  * @author Harold Asbridge <harold@shoebacca.com>
  * @codeCoverageIgnore
  */
