@@ -22,7 +22,7 @@ class DeleteQueueTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new DeleteQueue();
         $this->assertSame($command, $command->setQueueUrl('http://sqs.us-east-1.amazonaws.com/226005815177/michael'));
 
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'DeleteQueueResponse');
         $client->execute($command);
 

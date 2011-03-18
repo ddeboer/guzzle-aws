@@ -22,7 +22,7 @@ class SendMessageTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setQueueUrl('http://sqs.us-east-1.amazonaws.com/123456789012/testQueue'));
         $this->assertSame($command, $command->setMessage('This is a test message'));
 
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'SendMessageResponse');
         $client->execute($command);
 

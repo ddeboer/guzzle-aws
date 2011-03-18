@@ -22,7 +22,7 @@ class RemovePermissionTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setQueueUrl('http://sqs.us-east-1.amazonaws.com/226005815177/michael'));
         $this->assertSame($command, $command->setLabel('testLabel'));
 
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'RemovePermissionResponse');
         $client->execute($command);
 

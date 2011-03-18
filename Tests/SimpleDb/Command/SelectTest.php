@@ -18,7 +18,7 @@ class SelectTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testSelect()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new Select();
         $this->assertSame($command, $command->setConsistentRead(true));
         $this->assertSame($command, $command->setXmlResponseOnly(false));

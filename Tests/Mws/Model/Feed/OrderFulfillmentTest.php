@@ -13,7 +13,7 @@ class OrderFulfillmentTest extends GuzzleTestCase
 {
     public function testOrderFulfillment()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
         $feed = $client->getFeed('order_fulfillment');
 
         $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\Feed\OrderFulfillment', $feed);

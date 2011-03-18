@@ -19,7 +19,7 @@ class BucketIteratorTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testDecideMarker()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
 
         $xml = new \SimpleXMLElement($this->getMockResponse($client, 'ListBucketResponse')->getBody(true));
         $iterator = BucketIterator::factory($client, $xml);
@@ -45,7 +45,7 @@ class BucketIteratorTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testSendsSubequentCalls()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'ListBucketResponse');
         $xml = new \SimpleXMLElement($this->getMockResponse($client, 'ListBucketNextMarkerPrefixMarkerResponse')->getBody(true));
         $iterator = BucketIterator::factory($client, $xml);

@@ -23,7 +23,7 @@ class SetQueueAttributesTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->addAttribute(SetQueueAttributes::VISIBILITY_TIMEOUT, 12));
         $this->assertSame($command, $command->addAttribute(SetQueueAttributes::MAXIMUM_MESSAGE_SIZE, 8192));
 
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'SetQueueAttributesResponse');
         $client->execute($command);
 

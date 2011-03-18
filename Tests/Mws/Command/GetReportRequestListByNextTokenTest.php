@@ -12,7 +12,7 @@ class GetReportRequestListByNextTokenTest extends GuzzleTestCase
 {
     public function testGetReportRequestListByNextToken()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetReportRequestListByNextTokenResponse');
 

@@ -22,7 +22,7 @@ class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setBucket('bucket');
         $command->setLimit(100);
         $this->assertEquals(100, $command->get('limit'));
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'ListBucketResponse');
         $client->execute($command);
         
@@ -68,7 +68,7 @@ class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new \Guzzle\Service\Aws\S3\Command\Bucket\ListBucket();
         $command->setBucket('johnsmith');
         $command->setLimit(20);
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, array('ListBucketCommonPrefixUseCommonResponse', 'ListBucketResponse'));
         $client->execute($command);
 
@@ -126,7 +126,7 @@ class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setBucket('johnsmith')
                 ->setLimit(3);
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, array('ListBucketNextMarkerPrefixMarkerResponse', 'ListBucketResponse'));
         $client->execute($command);
         $all = $command->getResult()->toArray();

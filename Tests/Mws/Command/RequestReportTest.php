@@ -13,7 +13,7 @@ class RequestReportTest extends GuzzleTestCase
 {
     public function testRequestReport()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'RequestReportResponse');
         

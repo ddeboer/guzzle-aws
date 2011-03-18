@@ -23,7 +23,7 @@ class GetQueueAttributesTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->addAttribute('All'));
         $this->assertSame($command, $command->addAttribute('VisibilityTimeout'));
 
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'GetQueueAttributesResponse');
         $client->execute($command);
 

@@ -14,7 +14,7 @@ class GetReportTest extends GuzzleTestCase
     public function testGetReport()
     {
         // Get client
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         // Get command
         $command = $client->getCommand('get_report')

@@ -19,7 +19,7 @@ class AbstractClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testHoldsAccessIdentifiers()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $this->assertNotEmpty($client->getAccessKeyId());
         $this->assertNotEmpty($client->getSecretAccessKey());

@@ -14,7 +14,7 @@ class CancelReportRequestsTest extends GuzzleTestCase
     public function testCancelReportRequests()
     {
         // Get client
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'CancelReportRequestsResponse');
 

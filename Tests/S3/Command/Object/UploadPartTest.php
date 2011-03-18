@@ -25,7 +25,7 @@ class UploadPartTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setPartNumber(1));
         $this->assertSame($command, $command->setBody('data'));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'UploadPartResponse');
         $client->execute($command);
 
@@ -51,7 +51,7 @@ class UploadPartTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setBody('data'));
         $this->assertSame($command, $command->disableChecksumValidation());
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'UploadPartResponse');
         $client->execute($command);
 

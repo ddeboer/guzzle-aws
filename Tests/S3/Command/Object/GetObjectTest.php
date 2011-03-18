@@ -23,7 +23,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new GetObject();
         $command->setBucket('test')->setKey('key');
         
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetObjectResponse');
         $client->execute($command);
 
@@ -39,7 +39,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $command = new GetObject();
         $command->setBucket('test')->setKey('key')->setTorrent(true);
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetObjectResponse');
         $client->execute($command);
         $this->assertEquals('http://test.s3.amazonaws.com/key?torrent', $command->getRequest()->getUrl());
@@ -56,7 +56,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $body = EntityBody::factory(fopen('php://temp', 'r+'));
         $command->setResponseBody($body);
 
-        $client = $this->getServiceBuilder()->getClient('test.s3', true);
+        $client = $this->getServiceBuilder()->get('test.s3', true);
         $this->getServer()->enqueue((string) $this->getMockResponse($client, 'GetObjectResponse'));
         $client->setBaseUrl($this->getServer()->getUrl());
         $client->setForcePathHostingBuckets(true);
@@ -74,7 +74,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $command = new GetObject();
         $command->setBucket('test')->setKey('key');
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetObjectResponseBadChecksum');
         $client->execute($command);
     }
@@ -87,7 +87,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new GetObject();
         $command->setBucket('test')->setKey('key');
         $command->disableChecksumValidation();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetObjectResponseBadChecksum');
         $client->execute($command);
     }

@@ -16,7 +16,7 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testHoldsBatchedItemCollection()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
 
         $this->assertInstanceOf('Guzzle\\Service\\Aws\\SimpleDb\\Model\\BatchedItemCollection', $command->getBatchedItemCollection());
@@ -37,7 +37,7 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testQueuesItemsForSending()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
 
         $this->assertSame($command, $command->setDomain('test'));
@@ -80,7 +80,7 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testThrowsExceptionWithNoDomain()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
         $client->execute($command);
     }
@@ -91,7 +91,7 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testPreparesCommand()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
         $command->setDomain('test');
         $command->addItems(array(

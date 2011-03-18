@@ -11,7 +11,7 @@ class ListOrderItemsTest extends GuzzleTestCase
 {
     public function testListOrderItems()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'ListOrderItemsResponse');
 

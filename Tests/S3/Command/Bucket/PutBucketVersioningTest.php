@@ -24,7 +24,7 @@ class PutBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setMfaDelete(true));
         $this->assertSame($command, $command->setMfaHeader('abc 123'));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutBucketVersioningResponse');
         $client->execute($command);
 
@@ -44,7 +44,7 @@ class PutBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setStatus(false));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutBucketVersioningResponse');
         $client->execute($command);
 

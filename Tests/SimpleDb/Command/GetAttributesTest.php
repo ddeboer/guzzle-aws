@@ -24,7 +24,7 @@ class GetAttributesTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setAttributeNames(array('attr1', 'attr2')));
         $this->assertSame($command, $command->setConsistentRead(true));
 
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $this->setMockResponse($client, 'GetAttributesResponse');
 
         $client->execute($command);
