@@ -23,5 +23,7 @@ class AbstractClientTest extends \Guzzle\Tests\GuzzleTestCase
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $this->assertNotEmpty($client->getAccessKeyId());
         $this->assertNotEmpty($client->getSecretAccessKey());
+
+        $this->assertType('Guzzle\\Service\\Aws\\Signature\\AbstractSignature', $client->getSignature());
     }
 }

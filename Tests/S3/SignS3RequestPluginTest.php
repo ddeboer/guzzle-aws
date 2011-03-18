@@ -8,7 +8,7 @@ namespace Guzzle\Service\Aws\Tests\S3;
 
 use Guzzle\Common\Event\EventManager;
 use Guzzle\Http\Message\RequestFactory;
-use Guzzle\Service\Aws\S3\S3Builder;
+use Guzzle\Service\Aws\S3\S3Client;
 use Guzzle\Service\Aws\S3\S3Signature;
 use Guzzle\Service\Aws\S3\SignS3RequestPlugin;
 
@@ -34,13 +34,11 @@ class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $this->getServer()->enqueue("HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
 
-        $builder = new S3Builder(array(
+        $client = S3Client::factory(array(
             'base_url' => $this->getServer()->getUrl(),
-            'access_key_id' => 'a',
-            'secret_access_key' => 's'
+            'access_key' => 'a',
+            'secret_key' => 's'
         ));
-
-        $client = $builder->build();
 
         $request = $client->createRequest();
         $request->send();

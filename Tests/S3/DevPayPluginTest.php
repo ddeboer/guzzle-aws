@@ -6,7 +6,7 @@
 
 namespace Guzzle\Service\Aws\Tests\S3;
 
-use Guzzle\Service\Aws\S3\S3Builder;
+use Guzzle\Service\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -20,18 +20,16 @@ class DevPayPluginTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $this->getServer()->enqueue("HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
 
-        $builder = new S3Builder(array(
+        $client = S3Client::factory(array(
             'base_url' => $this->getServer()->getUrl(),
-            'access_key_id' => 'a',
-            'secret_access_key' => 's',
+            'access_key' => 'a',
+            'secret_key' => 's',
             'devpay_user_token' => 'user',
             'devpay_product_token' => 'product'
         ));
 
-        $client = $builder->build();
         $request = $client->createRequest('GET');
         $request->send();
-
         $this->assertTrue($request->hasHeader('x-amz-security-token'));
         $this->assertEquals('user, product', $request->getHeader('x-amz-security-token'));
     }

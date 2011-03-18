@@ -6,27 +6,26 @@
 
 namespace Guzzle\Service\Aws\S3;
 
-use Guzzle\Service\Aws\AbstractClient;
+use Guzzle\Guzzle;
+use Guzzle\Common\Cache\CacheAdapterInterface;
 use Guzzle\Http\QueryString;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Message\Request;
-use Guzzle\Guzzle;
+use Guzzle\Service\Builder\DefaultBuilder;
+use Guzzle\Service\Aws\AbstractClient;
 
 /**
  * Client for interacting with Amazon S3
  *
  * @author Michael Dowling <michael@guzzlephp.org>
- *
- * @guzzle access_key_id doc="AWS Access Key ID"
- * @guzzle secret_access_key doc="AWS Secret Access Key"
- * @guzzle region required="true" default="s3.amazonaws.com" doc="AWS Region endpoint"
- * @guzzle protocol required="true" default="http" doc="HTTP protocol (http or https)"
- * @guzzle base_url required="true" default="{{ protocol }}://{{ region }}/" doc="Amazon S3 endpoint"
- *
- * @guzzle cache.key_filter static="header=Date, Authorization; query=Timestamp, Signature"
  */
 class S3Client extends AbstractClient
 {
+    const REGION_DEFAULT = 's3.amazonaws.com';
+    const REGION_US_WEST_1 = 's3-us-west-1.amazonaws.com';
+    const REGION_AP_SOUTHEAST_1 = 's3-ap-southeast-1.amazonaws.com';
+    const REGION_EU = 's3-eu-west-1.amazonaws.com';
+
     const BUCKET_LOCATION_US = 'US';
     const BUCKET_LOCATION_EU = 'EU';
     const BUCKET_LOCATION_US_WEST_1 = 'us-west-1';
@@ -60,6 +59,70 @@ class S3Client extends AbstractClient
      * @var bool Force the client reference buckets using path hosting
      */
     protected $forcePathHosting = false;
+
+    /**
+     * Factory method to create a new S3 client
+     *
+     * @param array|Collection $config Configuration data. Array keys:
+     *    base_url - Base URL of web service.  Default: {{scheme}}://{{region}}/
+     *    scheme - Set to http or https.  Defaults to http
+     *    region - AWS region.  Defaults to s3.amazonaws.com
+     *    access_key - AWS access key ID.  Set to sign requests.
+     *    secret_key - AWS secret access key. Set to sign requests.
+     * @param CacheAdapterInterface $cacheAdapter (optional) Pass a cache
+     *      adapter to cache the service configuration settings
+     * @param int $cacheTtl (optional) How long to cache data
+     *
+     * @return S3Client
+     */
+    public static function factory($config, CacheAdapterInterface $cache = null, $ttl = 86400)
+    {
+        $defaults = array(
+            'base_url' => '{{scheme}}://{{region}}/',
+            'region' => self::REGION_DEFAULT,
+            'scheme' => 'http'
+        );
+        $required = array('region', 'scheme');
+        $config = DefaultBuilder::prepareConfig($config, $defaults, $required);
+
+        // Filter our the Timestamp and Signature query string values from cache
+        $config->set('cache.key_filter', 'header=Date, Authorization; query=Timestamp, Signature');
+
+        // If an access key and secret access key were provided, then the client
+        // requests will be authenticated
+        if ($config->get('access_key') && $config->get('secret_key')) {
+            $signature = new S3Signature($config->get('access_key'), $config->get('secret_key'));
+        }
+
+        $client = new self(
+            $config->get('base_url'),
+            $config->get('access_key'),
+            $config->get('secret_key'),
+            null,
+            $signature
+        );
+        $client->setConfig($config);
+
+        // If signing requests, add the request signing plugin
+        if ($signature) {
+            $client->getEventManager()->attach(
+                new SignS3RequestPlugin($signature), -99999
+            );
+        }
+
+        // If Amazon DevPay tokens were provided, then add a DevPay filter
+        if ($config->get('devpay_user_token') && $config->get('devpay_product_token')) {
+            // Add the devpay plugin pretty soon in the event emissions
+            $client->getEventManager()->attach(
+                new DevPayPlugin(
+                    $config->get('devpay_user_token'),
+                    $config->get('devpay_product_token')
+                ), 9999
+            );
+        }
+
+        return DefaultBuilder::build($client, $cache, $ttl);
+    }
 
     /**
      * Find out if a string is a valid name for an Amazon S3 bucket.
@@ -146,7 +209,7 @@ class S3Client extends AbstractClient
         if ($this->forcePathHosting) {
             $url = $this->getBaseUrl() . $bucket;
         } else {
-            $url = $this->inject('{{ protocol }}://' . $bucket . '.{{ region }}/');
+            $url = $this->inject('{{scheme}}://' . $bucket . '.{{region}}/');
         }
 
         if ($key) {
@@ -190,7 +253,7 @@ class S3Client extends AbstractClient
         $plugin = isset($plugin[0]) ? $plugin[0] : false;
         $isSigned = ($plugin != false);
         $xAmzHeaders = $torrentStr = '';
-        $url = 'http://' . $bucket . (($cnamed) ? '' : ('.' . $this->config->get('region')));
+        $url = 'http://' . $bucket . (($cnamed) ? '' : ('.' . $this->getConfig()->get('region')));
 
         if ($key) {
             $url .= '/' . $key;

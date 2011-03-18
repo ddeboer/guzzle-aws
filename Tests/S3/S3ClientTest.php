@@ -14,6 +14,29 @@ use Guzzle\Service\Aws\S3\S3Client;
 class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
+     * @covers Guzzle\Service\Aws\S3\S3Client
+     * @covers Guzzle\Service\Aws\AbstractClient
+     */
+    public function testBuildsClient()
+    {
+        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = S3Client::factory(array(
+            'access_key' => 'a',
+            'secret_key' => 'b',
+            'devpay_user_token' => '123',
+            'devpay_product_token' => 'abc',
+        ));
+        $this->assertInstanceOf('Guzzle\\Service\\Aws\\S3\\S3Client', $client);
+        // Make sure the signing plugin was attached
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
+        // Make sure the builder added the Authentication filter for preparing requests
+        $request = $client->createRequest();
+        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin'));
+        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
+    }
+
+    /**
      * Data provider for testing if a bucket name is valid
      * 
      * @return array

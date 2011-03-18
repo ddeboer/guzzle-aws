@@ -7,6 +7,7 @@
 namespace Guzzle\Service\Aws;
 
 use Guzzle\Service\Client;
+use Guzzle\Service\Aws\Signature\AbstractSignature;
 
 /**
  * Abstract AWS Client
@@ -16,13 +17,51 @@ use Guzzle\Service\Client;
 abstract class AbstractClient extends Client
 {
     /**
+     * @var Signature
+     */
+    protected $signature;
+
+    /**
+     * @var string AWS access key ID
+     */
+    protected $accessKey;
+
+    /**
+     * @var string AWS secret key
+     */
+    protected $secretKey;
+
+    /**
+     * @var string Service version
+     */
+    protected $version;
+    
+    /**
+     * Default AWS client constructor.  Clients must be created using a factory
+     *
+     * @param string $baseUrl Service base URL
+     * @param string $accessKey AWS access key ID
+     * @param string $secretKey AWS secret key
+     * @param string $version (optional) Service version
+     * @param AbstractSignature $signature (optional) AWS signature
+     */
+    public function __construct($baseUrl, $accessKey, $secretKey, $version = null, AbstractSignature $signature = null)
+    {
+        parent::__construct($baseUrl);
+        $this->accessKey = $accessKey;
+        $this->secretKey = $secretKey;
+        $this->version = $version;
+        $this->signature = $signature;
+    }
+    
+    /**
      * Get the AWS Access Key ID
      *
      * @return string
      */
     public function getAccessKeyId()
     {
-        return $this->config->get('access_key_id');
+        return $this->accessKey;
     }
 
     /**
@@ -32,6 +71,16 @@ abstract class AbstractClient extends Client
      */
     public function getSecretAccessKey()
     {
-        return $this->config->get('secret_access_key');
+        return $this->secretKey;
+    }
+
+    /**
+     * Get the AWS signature object
+     *
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->signature;
     }
 }
