@@ -26,7 +26,7 @@ class PutAclTest extends \Guzzle\Tests\GuzzleTestCase
     public function testPutObjectAcl()
     {
         $command = new \Guzzle\Service\Aws\S3\Command\PutAcl();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test')->setKey('key')->setAcl($this->_acl);
         $command->setVersionId('1234');
         $this->setMockResponse($client, 'PutObjectAclResponse');
@@ -46,7 +46,7 @@ class PutAclTest extends \Guzzle\Tests\GuzzleTestCase
     public function testPutBucketAcl()
     {
         $command = new \Guzzle\Service\Aws\S3\Command\PutAcl();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test')->setAcl($this->_acl);
         $this->setMockResponse($client, 'PutObjectAclResponse');
         $client->execute($command);

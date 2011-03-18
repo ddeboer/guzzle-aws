@@ -21,7 +21,7 @@ class DeleteObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setMfa('testing');
         $command->setVersionId('123');
         
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'DeleteObjectResponse');
         $client->execute($command);
 

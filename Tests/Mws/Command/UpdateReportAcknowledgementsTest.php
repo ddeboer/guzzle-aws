@@ -13,7 +13,7 @@ class UpdateReportAcknowledgementsTest extends GuzzleTestCase
 {
     public function testUpdateReportAcknowledgements()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'UpdateReportAcknowledgementsResponse');
 

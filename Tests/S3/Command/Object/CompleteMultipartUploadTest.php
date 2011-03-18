@@ -39,7 +39,7 @@ class CompleteMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setUploadId('123'));
         $this->assertSame($command, $command->setParts($parts));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'CompleteMultipartUploadResponse');
         $client->execute($command);
 
@@ -72,7 +72,7 @@ class CompleteMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command, $command->setUploadId('123'));
         $this->assertSame($command, $command->setParts($parts));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'CompleteMultipartUploadBadResponse');
         $client->execute($command);
     }

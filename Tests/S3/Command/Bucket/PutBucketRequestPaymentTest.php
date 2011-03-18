@@ -20,7 +20,7 @@ class PutBucketRequestPaymentTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setBucket('test');
         $command->setPayer('Requester');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutBucketRequestPaymentResponse');
         $client->execute($command);
 

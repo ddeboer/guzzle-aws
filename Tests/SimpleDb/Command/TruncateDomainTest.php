@@ -17,7 +17,7 @@ class TruncateDomainTest extends \Guzzle\Tests\GuzzleTestCase
     public function testTruncateDomain()
     {
         $this->getServer()->flush();
-        $client = $this->getServiceBuilder()->getClient('test.simple_db', true);
+        $client = $this->getServiceBuilder()->get('test.simple_db', true);
         $client->setBaseUrl($this->getServer()->getUrl());
         $this->setMockResponse($client, array(
             'DeleteDomainResponse',

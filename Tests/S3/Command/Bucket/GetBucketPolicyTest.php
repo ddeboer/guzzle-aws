@@ -21,7 +21,7 @@ class GetBucketPolicyTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new GetBucketPolicy();
         $command->setBucket('test');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetBucketPolicyResponse');
         $client->execute($command);
 

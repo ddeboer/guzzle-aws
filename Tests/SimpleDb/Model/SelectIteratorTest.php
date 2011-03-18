@@ -20,7 +20,7 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testSelectIterator()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new Select();
         $command->setSelectExpression('select * from mydomain where Title = \'The Right Stuff\'');
         $this->setMockResponse($client, array('SelectResponseWithNextToken', 'SelectResponse'));
@@ -74,7 +74,7 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testSelectIteratorWithLimit()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new Select();
         $command->setSelectExpression('select * from mydomain where Title = \'The Right Stuff\'');
         $command->setLimit(2);

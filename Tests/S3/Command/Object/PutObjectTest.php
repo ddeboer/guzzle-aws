@@ -30,7 +30,7 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setAcl(S3Client::ACL_PUBLIC_READ);
         $command->setStorageClass('STANDARD');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutObjectResponse');
         $client->execute($command);
 
@@ -66,7 +66,7 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
 
         $command->disableChecksumValidation();
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutObjectResponse');
         $client->execute($command);
 

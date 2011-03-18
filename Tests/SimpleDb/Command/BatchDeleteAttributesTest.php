@@ -19,7 +19,7 @@ class BatchDeleteAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testBatchDeleteAttributes()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchDeleteAttributes();
         $this->assertSame($command, $command->setDomain('test'));
 

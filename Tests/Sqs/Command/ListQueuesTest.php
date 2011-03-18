@@ -21,7 +21,7 @@ class ListQueuesTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new ListQueues();
         $this->assertSame($command, $command->setQueueNamePrefix('test'));
         
-        $client = $this->getServiceBuilder()->getClient('test.sqs');
+        $client = $this->getServiceBuilder()->get('test.sqs');
         $this->setMockResponse($client, 'ListQueuesResponse');
         $client->execute($command);
 

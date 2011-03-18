@@ -12,7 +12,7 @@ class GetOrderTest extends GuzzleTestCase
 {
     public function testGetOrder()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetOrderResponse');
 

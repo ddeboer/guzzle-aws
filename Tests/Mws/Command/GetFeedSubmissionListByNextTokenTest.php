@@ -13,7 +13,7 @@ class GetFeedSubmissionListByNextTokenTest extends GuzzleTestCase
 {
     public function testGetFeedSubmissionListByNextToken()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetFeedSubmissionListByNextTokenResponse');
         $command = $client->getCommand('get_feed_submission_list_by_next_token')

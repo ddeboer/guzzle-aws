@@ -19,7 +19,7 @@ class GetBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketVersioning();
         $command->setBucket('test');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetBucketVersioningResponse');
         $client->execute($command);
 

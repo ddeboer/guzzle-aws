@@ -13,7 +13,7 @@ class GetReportCountTest extends GuzzleTestCase
 {
     public function testGetReportCount()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetReportCountResult');
 

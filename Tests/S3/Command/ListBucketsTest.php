@@ -18,7 +18,7 @@ class ListBucketsTest extends \Guzzle\Tests\GuzzleTestCase
     public function testListBuckets()
     {
         $command = new \Guzzle\Service\Aws\S3\Command\ListBuckets();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'ListBucketsResponse');
 
         $client->execute($command);

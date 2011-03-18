@@ -20,7 +20,7 @@ class DeleteDomainTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\DeleteDomain();
         $command->setDomain('test');
 
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $this->setMockResponse($client, 'DeleteDomainResponse');
         $client->execute($command);
 

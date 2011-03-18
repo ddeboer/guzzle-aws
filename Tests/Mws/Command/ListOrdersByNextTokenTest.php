@@ -12,7 +12,7 @@ class ListOrdersByNextTokenTest extends \Guzzle\Tests\GuzzleTest
 {
     public function testListOrdersByNextToken()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'ListOrdersByNextTokenResponse');
 

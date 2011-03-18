@@ -18,7 +18,7 @@ class ResultIteratorTest extends GuzzleTestCase
     {
         if (!$this->iterator) {
 
-            $client = $this->getServiceBuilder()->getClient('test.mws');
+            $client = $this->getServiceBuilder()->get('test.mws');
 
             $ele = new \SimpleXMLElement('<Results />');
             $ele->addChild('Result');
@@ -39,7 +39,7 @@ class ResultIteratorTest extends GuzzleTestCase
     public function testSendRequest()
     {
         $iterator = $this->getIterator();
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetReportListByNextTokenResponse');
 

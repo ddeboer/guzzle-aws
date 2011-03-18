@@ -1,9 +1,14 @@
 <?php
+/**
+ * @package Guzzle PHP <http://www.guzzlephp.org>
+ * @license See the LICENSE file that was distributed with this source code.
+ */
 
 namespace Guzzle\Service\Aws\Mws;
 
 use Guzzle\Common\Inflector;
 use Guzzle\Common\Cache\CacheAdapterInterface;
+use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
 use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 use Guzzle\Service\Aws\QueryStringAuthPlugin;
@@ -66,6 +71,9 @@ class MwsClient extends AbstractClient
             new QueryStringAuthPlugin($signature, $config->get('version')),
             -9999
         );
+
+        // Retry 500 and 503 failures using exponential backoff
+        $client->getEventManager()->attach(new ExponentialBackoffPlugin());
 
         return DefaultBuilder::build($client, $cache, $ttl);
     }

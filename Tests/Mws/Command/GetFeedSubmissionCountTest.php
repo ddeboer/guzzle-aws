@@ -14,7 +14,7 @@ class GetFeedSubmissionCountTest extends GuzzleTestCase
     public function testGetFeedSubmissionCount()
     {
         // Get client
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetFeedSubmissionCountResponse');
 

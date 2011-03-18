@@ -30,7 +30,7 @@ class HeadObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setRequestHeader('x-amz-test', '123');
         $command->setVersionId('123');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'HeadObjectResponse');
         $client->execute($command);
 

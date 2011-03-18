@@ -19,7 +19,7 @@ class GetBucketRequestPaymentTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketRequestPayment();
         $command->setBucket('test');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetBucketRequestPaymentResponse');
         $client->execute($command);
 

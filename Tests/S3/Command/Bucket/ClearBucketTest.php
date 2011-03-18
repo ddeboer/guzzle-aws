@@ -21,7 +21,7 @@ class ClearBucketTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $command = new ClearBucket();
         $command->setBucket('test');
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, array(
             'ListBucketNextMarkerPrefixMarkerResponse',
             'ListBucketResponse',
@@ -63,7 +63,7 @@ class ClearBucketTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $command = new ClearBucket();
         $command->setBucket('test');
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $command->setPerBatch(2);
 
         $this->setMockResponse($client, array(

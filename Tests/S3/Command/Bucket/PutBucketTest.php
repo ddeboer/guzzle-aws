@@ -21,7 +21,7 @@ class PutBucketTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setAcl('public-read');
         $command->setRegion('us-west-1');
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'PutBucketResponse');
         $client->execute($command);
 

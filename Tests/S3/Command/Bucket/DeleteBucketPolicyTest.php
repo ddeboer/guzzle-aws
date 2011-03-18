@@ -22,7 +22,7 @@ class DeleteBucketPolicyTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new DeleteBucketPolicy();
         $this->assertSame($command, $command->setBucket('test'));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'DeleteBucketPolicyResponse');
         $client->execute($command);
 

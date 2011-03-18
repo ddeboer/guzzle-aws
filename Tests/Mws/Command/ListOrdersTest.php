@@ -12,7 +12,7 @@ class ListOrdersTest extends GuzzleTestCase
 {
     public function testListOrders()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetOrderResponse');
 

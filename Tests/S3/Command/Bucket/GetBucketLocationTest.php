@@ -19,7 +19,7 @@ class GetBucketLocationTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLocation();
         $command->setBucket('test');
         
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetBucketLocationResponse');
         $client->execute($command);
 

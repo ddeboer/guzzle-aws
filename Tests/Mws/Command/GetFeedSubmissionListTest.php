@@ -13,7 +13,7 @@ class GetFeedSubmissionListTest extends GuzzleTestCase
 {
     public function testGetFeedSubmissionList()
     {
-        $client = $this->getServiceBuilder()->getClient('test.mws');
+        $client = $this->getServiceBuilder()->get('test.mws');
 
         $this->setMockResponse($client, 'GetFeedSubmissionListResponse');
 

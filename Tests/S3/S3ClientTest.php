@@ -19,7 +19,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testBuildsClient()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $client = S3Client::factory(array(
             'access_key' => 'a',
             'secret_key' => 'b',
@@ -73,7 +73,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testAllowsPathHostingForOldBuckets()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $this->assertFalse($client->isPathHostingBuckets());
         $this->assertSame($client, $client->setForcePathHostingBuckets(true));
@@ -96,7 +96,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testGetS3Request()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $request = $client->getS3Request('GET');
         $this->assertEquals('http://s3.amazonaws.com/', $request->getUrl());
@@ -114,7 +114,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testGetSignedUrlThrowsExceptionWhenRequesterPaysAndTorrent()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $url = $client->getSignedUrl('test', 'key', 60, 'static.test.com', true, true);
         echo $url;
@@ -125,7 +125,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testGetSignedUrl()
     {
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         /* @var $client Guzzle\Service\Aws\S3\S3Client */
         $url = $client->getSignedUrl('test', 'test.zip', 60, false, false, false);
         $this->assertContains('&Expires=', $url);

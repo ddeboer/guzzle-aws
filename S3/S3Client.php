@@ -11,6 +11,7 @@ use Guzzle\Common\Cache\CacheAdapterInterface;
 use Guzzle\Http\QueryString;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Message\Request;
+use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
 use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 
@@ -109,6 +110,9 @@ class S3Client extends AbstractClient
                 new SignS3RequestPlugin($signature), -99999
             );
         }
+
+        // Retry 500 and 503 failures using exponential backoff
+        $client->getEventManager()->attach(new ExponentialBackoffPlugin());
 
         // If Amazon DevPay tokens were provided, then add a DevPay filter
         if ($config->get('devpay_user_token') && $config->get('devpay_product_token')) {

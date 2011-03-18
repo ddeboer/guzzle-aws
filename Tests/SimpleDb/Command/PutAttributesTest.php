@@ -18,7 +18,7 @@ class PutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testHoldsAttributes()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\PutAttributes();
         $this->assertSame($command, $command->setDomain('test'));
         $this->assertSame($command, $command->setItemName('item'));
@@ -62,7 +62,7 @@ class PutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testPreparesRequest()
     {
-        $client = $this->getServiceBuilder()->getClient('test.simple_db');
+        $client = $this->getServiceBuilder()->get('test.simple_db');
         $command = new \Guzzle\Service\Aws\SimpleDb\Command\PutAttributes();
         $this->assertSame($command, $command->setDomain('test'));
         $this->assertSame($command, $command->setItemName('item'));

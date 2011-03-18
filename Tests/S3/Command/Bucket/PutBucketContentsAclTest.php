@@ -32,7 +32,7 @@ class PutBucketContentsAclTest extends \Guzzle\Tests\GuzzleTestCase
 
         $this->assertSame($command, $command->setAcl($acl));
 
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         
         $this->setMockResponse($client, array(
             'ListBucketNextMarkerPrefixMarkerResponse',

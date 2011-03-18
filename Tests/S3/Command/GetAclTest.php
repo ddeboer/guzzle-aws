@@ -17,7 +17,7 @@ class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetObjectAcl()
     {
         $command = new \Guzzle\Service\Aws\S3\Command\GetAcl();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test');
         $command->setKey('key');
         $this->setMockResponse($client, 'GetObjectAclResponse');
@@ -40,7 +40,7 @@ class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetBucketAcl()
     {
         $command = new \Guzzle\Service\Aws\S3\Command\GetAcl();
-        $client = $this->getServiceBuilder()->getClient('test.s3');
+        $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test');
         $this->setMockResponse($client, 'GetBucketAclResponse');
 

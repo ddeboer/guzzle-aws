@@ -7,6 +7,7 @@
 namespace Guzzle\Service\Aws\Sqs;
 
 use Guzzle\Common\Cache\CacheAdapterInterface;
+use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
 use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 use Guzzle\Service\Aws\QueryStringAuthPlugin;
@@ -69,6 +70,9 @@ class SqsClient extends AbstractClient
             new QueryStringAuthPlugin($signature, $config->get('version')),
             -9999
         );
+
+        // Retry 500 and 503 failures using exponential backoff
+        $client->getEventManager()->attach(new ExponentialBackoffPlugin());
 
         return DefaultBuilder::build($client, $cache, $ttl);
     }
