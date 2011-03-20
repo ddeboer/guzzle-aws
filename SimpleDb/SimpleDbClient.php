@@ -49,7 +49,7 @@ class SimpleDbClient extends AbstractClient
     public static function factory($config)
     {
         // Passed config, default config, and required configs
-        $config = Inspector::getInstance()->prepareConfig($config, array(
+        $config = Inspector::prepareConfig($config, array(
             'base_url' => '{{scheme}}://{{region}}/',
             'version' => '2009-04-15',
             'region' => self::REGION_DEFAULT,

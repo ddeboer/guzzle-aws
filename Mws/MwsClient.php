@@ -46,7 +46,7 @@ class MwsClient extends AbstractClient
             'version' => self::VERSION
         );
         $required = array('access_key', 'secret_key', 'merchant_id', 'marketplace_id', 'application_name', 'application_version');
-        $config = Inspector::getInstance()->prepareConfig($config, $defaults, $required);
+        $config = Inspector::prepareConfig($config, $defaults, $required);
 
         // Filter our the Timestamp and Signature query string values from cache
         $config->set('cache.key_filter', 'query=Timestamp, Signature');

@@ -80,7 +80,7 @@ class S3Client extends AbstractClient
             'scheme' => 'http'
         );
         $required = array('region', 'scheme');
-        $config = Inspector::getInstance()->prepareConfig($config, $defaults, $required);
+        $config = Inspector::prepareConfig($config, $defaults, $required);
 
         // Filter our the Timestamp and Signature query string values from cache
         $config->set('cache.key_filter', 'header=Date, Authorization; query=Timestamp, Signature');
