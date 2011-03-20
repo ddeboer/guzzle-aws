@@ -48,7 +48,7 @@ class CopyObject extends AbstractRequestObject
         }
 
         if ($this->get('copy_source_if_match')) {
-            $this->setRequestHeader('x-amz-copy-source-if-match', $this->get('copy_source_if_match'));
+            $this->getRequestHeaders()->set('x-amz-copy-source-if-match', $this->get('copy_source_if_match'));
         }
 
         if ($this->get('copy_source_if_none_match')) {

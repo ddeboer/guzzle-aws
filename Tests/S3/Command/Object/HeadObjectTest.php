@@ -27,7 +27,7 @@ class HeadObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setIfNoneMatch('efghi');
         $command->setIfModifiedSince('Sat, 29 Oct 1994 19:43:31 GMT');
         $command->setIfUnmodifiedSince('Sat, 29 Oct 1994 19:43:31 GMT');
-        $command->setRequestHeader('x-amz-test', '123');
+        $command->getRequestHeaders()->set('x-amz-test', '123');
         $command->setVersionId('123');
 
         $client = $this->getServiceBuilder()->get('test.s3');
