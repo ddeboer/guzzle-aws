@@ -6,10 +6,9 @@
 
 namespace Guzzle\Service\Aws\Mws;
 
+use Guzzle\Common\Inspector;
 use Guzzle\Common\Inflector;
-use Guzzle\Common\Cache\CacheAdapterInterface;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 use Guzzle\Service\Aws\QueryStringAuthPlugin;
 use Guzzle\Service\Aws\Signature\SignatureV2;
@@ -38,20 +37,16 @@ class MwsClient extends AbstractClient
      *   application_name - Application name
      *   application_version - Application version
      *
-     * @param CacheAdapterInterface $cacheAdapter (optional) Pass a cache
-     *      adapter to cache the service configuration settings
-     * @param int $cacheTtl (optional) How long to cache data
-     *
      * @return MwsClient
      */
-    public static function factory($config, CacheAdapterInterface $cache = null, $ttl = 86400)
+    public static function factory($config)
     {
         $defaults = array(
             'base_url' => 'https://mws.amazonservices.com/',
             'version' => self::VERSION
         );
         $required = array('access_key', 'secret_key', 'merchant_id', 'marketplace_id', 'application_name', 'application_version');
-        $config = DefaultBuilder::prepareConfig($config, $defaults, $required);
+        $config = Inspector::getInstance()->prepareConfig($config, $defaults, $required);
 
         // Filter our the Timestamp and Signature query string values from cache
         $config->set('cache.key_filter', 'query=Timestamp, Signature');
@@ -75,7 +70,7 @@ class MwsClient extends AbstractClient
         // Retry 500 and 503 failures using exponential backoff
         $client->getEventManager()->attach(new ExponentialBackoffPlugin());
 
-        return DefaultBuilder::build($client, $cache, $ttl);
+        return $client;
     }
 
     /**

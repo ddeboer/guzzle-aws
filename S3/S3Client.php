@@ -7,12 +7,11 @@
 namespace Guzzle\Service\Aws\S3;
 
 use Guzzle\Guzzle;
-use Guzzle\Common\Cache\CacheAdapterInterface;
+use Guzzle\Common\Inspector;
 use Guzzle\Http\QueryString;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Message\Request;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 
 /**
@@ -70,13 +69,10 @@ class S3Client extends AbstractClient
      *    region - AWS region.  Defaults to s3.amazonaws.com
      *    access_key - AWS access key ID.  Set to sign requests.
      *    secret_key - AWS secret access key. Set to sign requests.
-     * @param CacheAdapterInterface $cacheAdapter (optional) Pass a cache
-     *      adapter to cache the service configuration settings
-     * @param int $cacheTtl (optional) How long to cache data
      *
      * @return S3Client
      */
-    public static function factory($config, CacheAdapterInterface $cache = null, $ttl = 86400)
+    public static function factory($config)
     {
         $defaults = array(
             'base_url' => '{{scheme}}://{{region}}/',
@@ -84,7 +80,7 @@ class S3Client extends AbstractClient
             'scheme' => 'http'
         );
         $required = array('region', 'scheme');
-        $config = DefaultBuilder::prepareConfig($config, $defaults, $required);
+        $config = Inspector::getInstance()->prepareConfig($config, $defaults, $required);
 
         // Filter our the Timestamp and Signature query string values from cache
         $config->set('cache.key_filter', 'header=Date, Authorization; query=Timestamp, Signature');
@@ -125,7 +121,7 @@ class S3Client extends AbstractClient
             );
         }
 
-        return DefaultBuilder::build($client, $cache, $ttl);
+        return $client;
     }
 
     /**

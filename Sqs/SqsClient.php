@@ -6,9 +6,8 @@
 
 namespace Guzzle\Service\Aws\Sqs;
 
-use Guzzle\Common\Cache\CacheAdapterInterface;
+use Guzzle\Common\Inspector;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Builder\DefaultBuilder;
 use Guzzle\Service\Aws\AbstractClient;
 use Guzzle\Service\Aws\QueryStringAuthPlugin;
 use Guzzle\Service\Aws\Signature\SignatureV2;
@@ -35,22 +34,18 @@ class SqsClient extends AbstractClient
      *    region - AWS region.  Defaults to sqs.us-east-1.amazonaws.com
      *  * access_key - AWS access key ID
      *  * secret_key - AWS secret access key
-     * @param CacheAdapterInterface $cacheAdapter (optional) Pass a cache
-     *      adapter to cache the service configuration settings
-     * @param int $cacheTtl (optional) How long to cache data
      *
-     * @return CentinelClient
+     * @return SqsClient
      */
-    public static function factory($config, CacheAdapterInterface $cache = null, $ttl = 86400)
+    public static function factory($config)
     {
-        $defaults = array(
+        // Passed config, default config, and required configs
+        $config = Inspector::getInstance()->prepareConfig($config, array(
             'base_url' => '{{scheme}}://{{region}}/',
             'version' => '2009-02-01',
             'region' => self::REGION_US_EAST_1,
             'scheme' => 'http'
-        );
-        $required = array('access_key', 'secret_key', 'region', 'version', 'scheme');
-        $config = DefaultBuilder::prepareConfig($config, $defaults, $required);
+        ), array('access_key', 'secret_key', 'region', 'version', 'scheme'));
 
         // Filter our the Timestamp and Signature query string values from cache
         $config->set('cache.key_filter', 'query=Timestamp, Signature');
@@ -74,6 +69,6 @@ class SqsClient extends AbstractClient
         // Retry 500 and 503 failures using exponential backoff
         $client->getEventManager()->attach(new ExponentialBackoffPlugin());
 
-        return DefaultBuilder::build($client, $cache, $ttl);
+        return $client;
     }
 }

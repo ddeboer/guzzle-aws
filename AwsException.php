@@ -6,7 +6,7 @@
 
 namespace Guzzle\Service\Aws;
 
-use Guzzle\Service\ServiceException;
+use Guzzle\Common\GuzzleException;
 
 /**
  * Amazon Web Services exception
@@ -15,6 +15,6 @@ use Guzzle\Service\ServiceException;
  *
  * @codeCoverageIgnore
  */
-class AwsException extends ServiceException
+class AwsException extends \Exception implements GuzzleException
 {
 }
