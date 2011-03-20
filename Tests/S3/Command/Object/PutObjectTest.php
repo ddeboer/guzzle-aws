@@ -26,7 +26,7 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setBucket('test')->setKey('key');
         $command->setBody('data');
 
-        $command->setRequestHeader('x-amz-test', '123');
+        $command->getRequestHeaders()->set('x-amz-test', '123');
         $command->setAcl(S3Client::ACL_PUBLIC_READ);
         $command->setStorageClass('STANDARD');
 
@@ -50,8 +50,6 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
             'User-Agent' => Guzzle::getDefaultUserAgent(),
             'Expect' => '100-Continue'
         ), $command->getRequestHeaders()->getAll()));
-
-        $this->assertTrue($command->getRequestHeaders()->hasKey('Content-MD5'));
 
         $this->assertEquals('data', (string) $command->getRequest()->getBody());
     }

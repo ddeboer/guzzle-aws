@@ -25,7 +25,7 @@ class InitiateMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
         $command = new InitiateMultipartUpload();
         $command->setBucket('example-bucket')->setKey('example-object');
         
-        $command->setRequestHeader('x-amz-test', '123');
+        $command->getRequestHeaders()->set('x-amz-test', '123');
         $command->setAcl(S3Client::ACL_PUBLIC_READ);
         $command->setStorageClass('STANDARD');
 

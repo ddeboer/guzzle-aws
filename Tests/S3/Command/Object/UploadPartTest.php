@@ -32,7 +32,6 @@ class UploadPartTest extends \Guzzle\Tests\GuzzleTestCase
         $request = (string)$command->getRequest();
         $this->assertEquals('http://test.s3.amazonaws.com/key?partNumber=1&uploadId=123', $command->getRequest()->getUrl());
         $this->assertEquals('PUT', $command->getRequest()->getMethod());
-        $this->assertTrue($command->getRequestHeaders()->hasKey('Content-MD5'));
         $this->assertEquals('data', (string)$command->getRequest()->getBody());
 
         $this->assertEquals('b54357faf0632cce46e942fa68356b38', $command->getResult());
