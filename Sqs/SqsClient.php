@@ -40,7 +40,7 @@ class SqsClient extends AbstractClient
     public static function factory($config)
     {
         // Passed config, default config, and required configs
-        $config = Inspector::getInstance()->prepareConfig($config, array(
+        $config = Inspector::prepareConfig($config, array(
             'base_url' => '{{scheme}}://{{region}}/',
             'version' => '2009-02-01',
             'region' => self::REGION_US_EAST_1,
