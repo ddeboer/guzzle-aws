@@ -13,7 +13,7 @@ namespace Guzzle\Service\Aws\Sqs\Command;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  *
- * @guzzle queue_url required="true" doc="URL of the queue"
+ * @guzzle queue_url required="true" doc="Queue URL"
  * @guzzle label required="true" doc="The identfication of the permission you want to remove. This is the label you added in AddPermission."
  */
 class RemovePermission extends AbstractQueueUrlCommand

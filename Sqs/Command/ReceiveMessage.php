@@ -13,7 +13,7 @@ use Guzzle\Common\Inflector;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  *
- * @guzzle queue_url required="true" doc="URL of the queue"
+ * @guzzle queue_url required="true" doc="Queue URL"
  * @guzzle visibility_timeout doc="The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request."
  * @guzzle max_messages doc="The maximum number of messages to retrieve per request"
  */
