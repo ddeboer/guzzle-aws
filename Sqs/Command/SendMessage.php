@@ -11,7 +11,7 @@ namespace Guzzle\Service\Aws\Sqs\Command;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  *
- * @guzzle queue_url required="true" doc="URL of the queue to delete"
+ * @guzzle queue_url required="true" doc="Queue URL"
  * @guzzle message required="true" doc="Message body"
  */
 class SendMessage extends AbstractQueueUrlCommand

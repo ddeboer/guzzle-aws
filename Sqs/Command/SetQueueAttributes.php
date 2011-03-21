@@ -13,7 +13,7 @@ namespace Guzzle\Service\Aws\Sqs\Command;
  *
  * @author Michael Dowling <michael@guzzlephp.org>
  *
- * @guzzle queue_url required="true" doc="URL of the queue"
+ * @guzzle queue_url required="true" doc="Queue URL"
  * @guzzle attributes required="true" doc="Associative array of attributes to set"
  */
 class SetQueueAttributes extends AbstractQueueUrlCommand
