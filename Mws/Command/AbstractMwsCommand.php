@@ -57,7 +57,7 @@ class AbstractMwsCommand extends AbstractCommand
         // Set authorization fields
         $config = $this->getClient()->getConfig();
         $this->request->getQuery()
-            ->set('AWSAccessKeyId', $config['access_key_id'])
+            ->set('AWSAccessKeyId', $config['access_key'])
             ->set('Marketplace', $config['marketplace_id'])
             ->set('Merchant', $config['merchant_id']);
 
