@@ -33,7 +33,7 @@ class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
         $request->getEventManager()->notify('request.before_send');
         
         $qs = $request->getQuery();
-        $this->assertTrue($qs->hasKey('Timestamp'));
+        $this->assertTrue($qs->hasKey('Timestamp') !== false);
         $this->assertEquals('2009-04-15', $qs->get('Version'));
         $this->assertEquals('2', $qs->get('SignatureVersion'));
         $this->assertEquals('HmacSHA256', $qs->get('SignatureMethod'));

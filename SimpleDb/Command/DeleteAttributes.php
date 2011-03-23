@@ -6,6 +6,8 @@
 
 namespace Guzzle\Service\Aws\SimpleDb\Command;
 
+use Guzzle\Common\Collection;
+
 /**
  * Delete attributes from an Amazon SimpleDB item
  *
@@ -28,7 +30,7 @@ class DeleteAttributes extends AbstractAttributeCommand
     protected function build()
     {
         parent::build();
-        foreach ($this->getAll(array('/^Expected\.[0-9]+\..+$$/')) as $key => $value) {
+        foreach ($this->getAll('/^Expected\.[0-9]+\.(Name|Value|Exists)$/', Collection::MATCH_REGEX) as $key => $value) {
             $this->request->getQuery()->set($key, $value);
         }
     }
@@ -45,9 +47,9 @@ class DeleteAttributes extends AbstractAttributeCommand
      */
     public function addExpected($name, $value, $exists = false)
     {
-        $count = (int)count($this->getAll(array('/^Expected\.[0-9]+\..+$/')));
-        $this->set("Expected.{$count}.Name", (string)$name);
-        $this->set("Expected.{$count}.Value", (string)$value);
+        $count = (int) count($this->getAll('/^Expected\.[0-9]+\.(Name|Value|Exists)$/', Collection::MATCH_REGEX));
+        $this->set("Expected.{$count}.Name", (string) $name);
+        $this->set("Expected.{$count}.Value", (string) $value);
         $this->set("Expected.{$count}.Exists", ($exists) ? 'true' : 'false');
 
         return $this;

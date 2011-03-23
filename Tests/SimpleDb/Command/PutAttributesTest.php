@@ -6,6 +6,8 @@
 
 namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 
+use Guzzle\Common\Collection;
+
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
  */
@@ -51,7 +53,7 @@ class PutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
             'Attribute.2.Name' => 'attr_2',
             'Attribute.2.Replace' => 'true',
             'Attribute.2.Value' => 'value_3'
-        ), $command->getAll(array('/^Attribute.+/')));
+        ), $command->getAll('/^Attribute.+/', Collection::MATCH_REGEX));
     }
 
     /**

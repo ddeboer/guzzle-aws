@@ -30,7 +30,7 @@ class DevPayPluginTest extends \Guzzle\Tests\GuzzleTestCase
 
         $request = $client->createRequest('GET');
         $request->send();
-        $this->assertTrue($request->hasHeader('x-amz-security-token'));
+        $this->assertTrue($request->hasHeader('x-amz-security-token') !== false);
         $this->assertEquals('user, product', $request->getHeader('x-amz-security-token'));
     }
 }

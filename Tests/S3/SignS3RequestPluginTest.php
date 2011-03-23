@@ -43,7 +43,7 @@ class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
         $request = $client->createRequest();
         $request->send();
 
-        $this->assertTrue($request->hasHeader('Authorization'));
+        $this->assertTrue($request->hasHeader('Authorization') !== false);
         $this->assertContains('AWS a:', $request->getHeader('Authorization'));
     }
 }
