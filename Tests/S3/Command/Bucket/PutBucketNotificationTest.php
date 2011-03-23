@@ -42,7 +42,7 @@ class PutBucketNotificationTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertContains('Host: test.s3.amazonaws.com', $request);
         $this->assertContains($notification, $request);
         
-        $this->assertTrue($command->getResponse()->hasHeader('x-amz-sns-test-message-id'));
+        $this->assertTrue($command->getResponse()->hasHeader('x-amz-sns-test-message-id') !== false);
     }
 
     /**

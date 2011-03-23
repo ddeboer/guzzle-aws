@@ -113,12 +113,12 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('sdb.amazonaws.com', $request->getHost());
         
         // Make sure the command was signed
-        $this->assertTrue($request->getQuery()->hasKey('Timestamp'));
-        $this->assertTrue($request->getQuery()->hasKey('Version'));
-        $this->assertTrue($request->getQuery()->hasKey('SignatureVersion'));
-        $this->assertTrue($request->getQuery()->hasKey('SignatureMethod'));
-        $this->assertTrue($request->getQuery()->hasKey('AWSAccessKeyId'));
-        $this->assertTrue($request->getQuery()->hasKey('Signature'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('Timestamp'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('Version'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('SignatureVersion'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('SignatureMethod'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('AWSAccessKeyId'));
+        $this->assertTrue(false !== $request->getQuery()->hasKey('Signature'));
 
         // Make sure the result was converted into a SimpleXMLElement
         $this->assertInstanceOf('SimpleXMLElement', $command->getResult());
