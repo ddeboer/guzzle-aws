@@ -69,28 +69,15 @@ class QueryStringAuthPlugin implements Observer
     public function addRequiredQueryString(RequestInterface $request)
     {
         $qs = $request->getQuery();
-
         // Add required parameters to the request
-        if (!$qs->hasKey('Timestamp')) {
-            $qs->set('Timestamp', gmdate('c'));
-        }
-
-        if (!$qs->hasKey('Version')) {
-            $qs->set('Version', $this->apiVersion);
-        }
-
-        if (!$qs->hasKey('SignatureVersion')) {
-            $qs->set('SignatureVersion', $this->signature->getVersion());
-        }
-
+        $qs->set('Timestamp', gmdate('c'));
+        $qs->set('Version', $this->apiVersion);
+        $qs->set('SignatureVersion', $this->signature->getVersion());
         // Signature V2 and onward functionality
-        if ((int) $this->signature->getVersion() > 1 && !$qs->hasKey('SignatureMethod')) {
+        if ((int) $this->signature->getVersion() > 1) {
             $qs->set('SignatureMethod', $this->signature->getAwsHashingAlgorithm());
         }
-
-        if (!$qs->hasKey('AWSAccessKeyId')) {
-            $qs->set('AWSAccessKeyId', $this->signature->getAccessKeyId());
-        }
+        $qs->set('AWSAccessKeyId', $this->signature->getAccessKeyId());
     }
 
     /**
