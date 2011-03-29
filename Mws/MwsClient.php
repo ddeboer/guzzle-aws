@@ -68,21 +68,23 @@ class MwsClient extends AbstractClient
         );
 
         // Retry 500 and 503 failures using exponential backoff
-        $client->getEventManager()->attach(new ExponentialBackoffPlugin());
+        $client->getEventManager()->attach(new ExponentialBackoffPlugin(3, null, function($try){
+            return 60;
+        }));
 
         return $client;
     }
 
     /**
      * Get feed class
-     * 
+     *
      * @param string $feedType The type of feed ot retrieve
      *
      * @return \Guzzle\Service\Aws\Mws\Model\Feed\AbstractFeed
      */
     public function getFeed($feedType)
     {
-        $class = 'Guzzle\\Service\\Aws\\Mws\\Model\\Feed\\' 
+        $class = 'Guzzle\\Service\\Aws\\Mws\\Model\\Feed\\'
             . ucfirst(Inflector::camel($feedType));
 
         return new $class($this);
