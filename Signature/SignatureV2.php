@@ -40,7 +40,9 @@ class SignatureV2 extends AbstractSignature
         }
 
         if (!array_key_exists('ignore', $options)) {
-            $options['ignore'] = 'awsSignature';
+            $options['ignore'] = array('awsSignature', 'Signature');
+        } else {
+            $options['ignore'] = (array) $options['ignore'];
         }
 
         if (!array_key_exists('sort_method', $options)) {
@@ -58,7 +60,7 @@ class SignatureV2 extends AbstractSignature
         uksort($request, $options['sort_method']);
 
         foreach ($request as $k => $v) {
-            if ($k && $v && strcmp($k, $options['ignore'])) {
+            if ($k && $v && !in_array($k, $options['ignore'])) {
                 if ($parameterString) {
                     $parameterString .= '&';
                 }
