@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['GUZZLE'] . '/library/vendor/Symfony/Component/ClassLoader/UniversalClassLoader.php';
+require_once $_SERVER['GUZZLE'] . '/vendor/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
 use Symfony\Component\ClassLoader\UniversalClassLoader;
 
