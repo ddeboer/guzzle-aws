@@ -6,7 +6,7 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
-    'Guzzle' => $_SERVER['GUZZLE'] . '/library',
+    'Guzzle' => $_SERVER['GUZZLE'] . '/src',
     'Guzzle\\Tests' => $_SERVER['GUZZLE'] . '/tests'
 ));
 $loader->register();
