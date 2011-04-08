@@ -30,11 +30,6 @@ use Guzzle\Service\Aws\S3\S3Exception;
 class GetObject extends AbstractRequestObject
 {
     /**
-     * @var bool Whether or not to send a checksum with the GET
-     */
-    protected $validateChecksum = true;
-
-    /**
      * {@inheritdoc}
      */
     protected function build()
@@ -49,35 +44,6 @@ class GetObject extends AbstractRequestObject
         if ($this->hasKey('body')) {
             $this->request->setResponseBody($this->get('body'));
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function process()
-    {
-        $this->result = $this->getResponse();
-
-        // Validate the checksum
-        if ($this->validateChecksum && $this->request->isResponseBodyRepeatable()) {
-            $expected = trim(str_replace('"', '', $this->getResponse()->getEtag()));
-            $received = $this->getResponse()->getBody()->getContentMd5();
-            if (strcmp($expected, $received)) {
-                throw new S3Exception('Checksum mismatch when downloading object: expected ' . $expected . ', recieved ' . $received);
-            }
-        }
-    }
-
-    /**
-     * Disable checksum validation when the object has been retrieved
-     *
-     * @return PutObject
-     */
-    public function disableChecksumValidation()
-    {
-        $this->validateChecksum = false;
-        
-        return $this;
     }
 
     /**

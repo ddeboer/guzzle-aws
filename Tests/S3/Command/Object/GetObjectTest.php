@@ -65,30 +65,4 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame($command->getResponse()->getBody(), $body);
         $this->assertEquals('data', $command->getResponse()->getBody(true));
     }
-
-    /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\GetObject
-     * @expectedException Guzzle\Service\Aws\S3\S3Exception
-     */
-    public function testChecksumValidation()
-    {
-        $command = new GetObject();
-        $command->setBucket('test')->setKey('key');
-        $client = $this->getServiceBuilder()->get('test.s3');
-        $this->setMockResponse($client, 'GetObjectResponseBadChecksum');
-        $client->execute($command);
-    }
-
-    /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\GetObject
-     */
-    public function testDisableChecksumValidation()
-    {
-        $command = new GetObject();
-        $command->setBucket('test')->setKey('key');
-        $command->disableChecksumValidation();
-        $client = $this->getServiceBuilder()->get('test.s3');
-        $this->setMockResponse($client, 'GetObjectResponseBadChecksum');
-        $client->execute($command);
-    }
 }
