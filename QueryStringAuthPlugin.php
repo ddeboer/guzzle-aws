@@ -106,7 +106,7 @@ class QueryStringAuthPlugin implements Observer
      */
     public function update(Subject $subject, $event, $context = null)
     {
-        if ($subject instanceof RequestInterface && $event == 'request.before_send') {
+        if ($subject instanceof RequestInterface && $event == 'request.curl.before_create') {
             $this->addRequiredQueryString($subject);
             $this->addQueryStringSignature($subject);
         }
