@@ -30,7 +30,7 @@ class PutAttributes extends AbstractAttributeCommand
     protected function build()
     {
         parent::build();
-        foreach ($this->getAll('/Expected\.[0-9]+[.*]+/', Collection::MATCH_REGEX) as $key => $value) {
+        foreach ($this->getAll('/Expected\.[0-9]+.*/', Collection::MATCH_REGEX) as $key => $value) {
             $this->request->getQuery()->set($key, $value);
         }
     }
@@ -47,7 +47,7 @@ class PutAttributes extends AbstractAttributeCommand
      */
     public function addAttribute($name, $value, $replace = false)
     {
-        $count = (int) count($this->getAll('/^Attribute(Name)*\.[0-9]+[.*]+/', Collection::MATCH_REGEX));
+        $count = (int) count($this->getAll('/^Attribute(Name)*\.[0-9]+\.Name$/', Collection::MATCH_REGEX));
         $this->set("Attribute.{$count}.Name", (string) $name);
         $this->set("Attribute.{$count}.Value", (string) $value);
         $this->set("Attribute.{$count}.Replace", ($replace) ? 'true' : 'false');
@@ -85,7 +85,7 @@ class PutAttributes extends AbstractAttributeCommand
     public function setAttributes(array $attributes, $replace = false)
     {
         // Remove all previously set attributes
-        foreach ($this->getAll('/^Attribute\.[0-9]+\.Name$/', Collection::MATCH_REGEX) as $key => $value) {
+        foreach ($this->getAll('/^Attribute\.[0-9]+\..*/', Collection::MATCH_REGEX) as $key => $value) {
             $this->remove($key);
         }
 

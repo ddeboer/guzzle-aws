@@ -27,7 +27,7 @@ abstract class AbstractAttributeCommand extends AbstractSimpleDbCommandRequiresD
         parent::build();
         $this->request->getQuery()->set('ItemName', $this->get('item_name'));
 
-        foreach ($this->getAll('/^Attribute(Name)*\.[0-9]+.*+$/', Collection::MATCH_REGEX) as $key => $value) {
+        foreach ($this->getAll('/^Attribute(Name)*\.[0-9]+.*$/', Collection::MATCH_REGEX) as $key => $value) {
             $this->request->getQuery()->set($key, $value);
         }
     }
