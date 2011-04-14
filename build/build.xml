@@ -9,7 +9,7 @@
         <input propertyname="path_to_guzzle">Root path to your git clone of Guzzle</input>
         <available file="${path_to_guzzle}/src/Guzzle/Guzzle.php" property="correct" value="1"/>
         <fail unless="correct" msg="That does not appear to be a path to an installation of Guzzle" />
-        <copy file="phpunit.xml.dist" tofile="phpunit.xml" overwrite="true">
+        <copy file="../phpunit.xml.dist" tofile="../phpunit.xml" overwrite="true">
             <filterchain>
                 <expandproperties />
             </filterchain>
@@ -22,11 +22,11 @@
     <target name="phar">
         <pharpackage
             destfile="./guzzle-aws.phar"
-            basedir="./"
-            stub="./autoload-phar.php"
-            alias="Guzzle-Aws"
+            basedir="./../"
+            stub="./autoload.php"
+            alias="guzzle-aws"
             signature="sha1">
-            <fileset dir="./">
+            <fileset dir="./../">
                 <include name="**/*.php" />
                 <exclude name="**/Tests/**" />
             </fileset>
@@ -35,4 +35,5 @@
             </metadata>
         </pharpackage>
     </target>
+
 </project>
