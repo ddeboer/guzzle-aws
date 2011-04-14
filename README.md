@@ -19,6 +19,7 @@ installation:
 
 You can now build a phar file containing guzzle-aws and the main guzzle framework:
 
+    cd /path/to/guzzle/build
     phing phar
 
 Now you just need to include guzzle.phar in your script.  The phar file
