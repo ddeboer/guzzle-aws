@@ -3,6 +3,7 @@ Guzzle AWS Web Service Clients for PHP
 
 Interact with various Amazon Web Services APIs using the Guzzle framework for
 building RESTful web service clients in PHP.
+
 - Amazon S3
 - Amazon SQS
 - Amazon SimpleDB
