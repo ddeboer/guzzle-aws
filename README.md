@@ -17,30 +17,24 @@ installation:
     cd /path/to/guzzle
     git submodule add git://github.com/guzzle/guzzle-aws.git ./src/Guzzle/Service/Aws
 
-Alternatively, you can build a guzzle-aws phar file and include the phar file
-in your project:
+You can now build a phar file containing guzzle-aws and the main guzzle framework:
 
-    cd build
     phing phar
 
-Now you just need to include guzzle-aws.phar in your script.  The phar file
-will take care of autoloading Guzzle\Service\Aws classes:
+Now you just need to include guzzle.phar in your script.  The phar file
+will take care of autoloading Guzzle classes:
 
     <?php
     require_once 'guzzle.phar';
-    require_once 'guzzle-aws.phar';
 
 ## Testing
 
-Run the phing build script to configure guzzle-aws for PHPUnit testing:
+Run the phing build script to configure your project for PHPUnit testing:
 
-    cd build
-    phing init
+    phing
 
 You will be prompted for the full path to your git clone of the main Guzzle
 framework.
-
-guzzle-aws uses PHPUnit to run unit tests.  Just type "phpunit" on the command line to run the tests.
 
 ### More information
 

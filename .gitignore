@@ -2,4 +2,3 @@ phpunit.xml
 coverage
 nbproject
 /.svn/
-build/guzzle-aws.phar
