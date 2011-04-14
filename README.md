@@ -20,6 +20,7 @@ installation:
 Alternatively, you can build a guzzle-aws phar file and include the phar file
 in your project:
 
+    cd build
     phing phar
 
 Now you just need to include guzzle-aws.phar in your script.  The phar file
@@ -33,6 +34,7 @@ will take care of autoloading Guzzle\Service\Aws classes:
 
 Run the phing build script to configure guzzle-aws for PHPUnit testing:
 
+    cd build
     phing init
 
 You will be prompted for the full path to your git clone of the main Guzzle

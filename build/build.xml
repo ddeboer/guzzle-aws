@@ -6,7 +6,8 @@
     <!-- ============================================  -->
     <target name="init">
         <echo msg="Preparing phpunit.xml" />
-        <input propertyname="path_to_guzzle">Root path to your git clone of Guzzle</input>
+        <echo msg="Please enter the root root path to your git clone of guzzle" />
+        <input propertyname="path_to_guzzle">Path to guzzle: </input>
         <available file="${path_to_guzzle}/src/Guzzle/Guzzle.php" property="correct" value="1"/>
         <fail unless="correct" msg="That does not appear to be a path to an installation of Guzzle" />
         <copy file="../phpunit.xml.dist" tofile="../phpunit.xml" overwrite="true">
