@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command;
+namespace Guzzle\Aws\S3\Command;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 use Guzzle\Service\Command\AbstractCommand;
 
 /**

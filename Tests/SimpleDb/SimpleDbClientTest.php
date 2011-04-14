@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb;
+namespace Guzzle\Aws\Tests\SimpleDb;
 
-use Guzzle\Service\Aws\SimpleDb\SimpleDbClient;
+use Guzzle\Aws\SimpleDb\SimpleDbClient;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\SimpleDb\SimpleDbClient;
 class SimpleDbClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\SimpleDbClient
+     * @covers Guzzle\Aws\SimpleDb\SimpleDbClient
      */
     public function testBuildsClient()
     {
@@ -22,8 +22,8 @@ class SimpleDbClientTest extends \Guzzle\Tests\GuzzleTestCase
             'access_key' => 'a',
             'secret_key' => 'b'
         ));
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\SimpleDb\\SimpleDbClient', $client);
+        $this->assertInstanceOf('Guzzle\\Aws\\SimpleDb\\SimpleDbClient', $client);
         // Make sure the query string auth signing plugin was attached
-        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\QueryStringAuthPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Aws\\QueryStringAuthPlugin'));
     }
 }

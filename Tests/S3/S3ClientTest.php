@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3;
+namespace Guzzle\Aws\Tests\S3;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,8 +14,8 @@ use Guzzle\Service\Aws\S3\S3Client;
 class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client
-     * @covers Guzzle\Service\Aws\AbstractClient
+     * @covers Guzzle\Aws\S3\S3Client
+     * @covers Guzzle\Aws\AbstractClient
      */
     public function testBuildsClient()
     {
@@ -26,14 +26,14 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
             'devpay_user_token' => '123',
             'devpay_product_token' => 'abc',
         ));
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\S3\\S3Client', $client);
+        $this->assertInstanceOf('Guzzle\\Aws\\S3\\S3Client', $client);
         // Make sure the signing plugin was attached
-        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin'));
-        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Aws\\S3\\SignS3RequestPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Aws\\S3\\DevPayPlugin'));
         // Make sure the builder added the Authentication filter for preparing requests
         $request = $client->createRequest();
-        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin'));
-        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\S3\\DevPayPlugin'));
+        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Aws\\S3\\SignS3RequestPlugin'));
+        $this->assertTrue($request->getEventManager()->hasObserver('Guzzle\\Aws\\S3\\DevPayPlugin'));
     }
 
     /**
@@ -57,7 +57,7 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client::isValidBucketName
+     * @covers Guzzle\Aws\S3\S3Client::isValidBucketName
      * @dataProvider bucketNameProvider
      */
     public function testIsValidBucketName($bucketName, $isValid)
@@ -66,15 +66,15 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client::setForcePathHostingBuckets
-     * @covers Guzzle\Service\Aws\S3\S3Client::isPathHostingBuckets
-     * @covers Guzzle\Service\Aws\S3\S3Client::getS3Request
-     * @covers Guzzle\Service\Aws\S3\S3Client::createRequest
+     * @covers Guzzle\Aws\S3\S3Client::setForcePathHostingBuckets
+     * @covers Guzzle\Aws\S3\S3Client::isPathHostingBuckets
+     * @covers Guzzle\Aws\S3\S3Client::getS3Request
+     * @covers Guzzle\Aws\S3\S3Client::createRequest
      */
     public function testAllowsPathHostingForOldBuckets()
     {
         $client = $this->getServiceBuilder()->get('test.s3');
-        /* @var $client Guzzle\Service\Aws\S3\S3Client */
+        /* @var $client Guzzle\Aws\S3\S3Client */
         $this->assertFalse($client->isPathHostingBuckets());
         $this->assertSame($client, $client->setForcePathHostingBuckets(true));
         $this->assertTrue($client->isPathHostingBuckets());
@@ -92,12 +92,12 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client::getS3Request
+     * @covers Guzzle\Aws\S3\S3Client::getS3Request
      */
     public function testGetS3Request()
     {
         $client = $this->getServiceBuilder()->get('test.s3');
-        /* @var $client Guzzle\Service\Aws\S3\S3Client */
+        /* @var $client Guzzle\Aws\S3\S3Client */
         $request = $client->getS3Request('GET');
         $this->assertEquals('http://s3.amazonaws.com/', $request->getUrl());
 
@@ -109,24 +109,24 @@ class S3ClientTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client::getSignedUrl
+     * @covers Guzzle\Aws\S3\S3Client::getSignedUrl
      * @expectedException InvalidArgumentException
      */
     public function testGetSignedUrlThrowsExceptionWhenRequesterPaysAndTorrent()
     {
         $client = $this->getServiceBuilder()->get('test.s3');
-        /* @var $client Guzzle\Service\Aws\S3\S3Client */
+        /* @var $client Guzzle\Aws\S3\S3Client */
         $url = $client->getSignedUrl('test', 'key', 60, 'static.test.com', true, true);
         echo $url;
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Client::getSignedUrl
+     * @covers Guzzle\Aws\S3\S3Client::getSignedUrl
      */
     public function testGetSignedUrl()
     {
         $client = $this->getServiceBuilder()->get('test.s3');
-        /* @var $client Guzzle\Service\Aws\S3\S3Client */
+        /* @var $client Guzzle\Aws\S3\S3Client */
         $url = $client->getSignedUrl('test', 'test.zip', 60, false, false, false);
         $this->assertContains('&Expires=', $url);
         $this->assertContains('&Signature=', $url);

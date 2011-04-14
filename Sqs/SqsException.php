@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Sqs;
+namespace Guzzle\Aws\Sqs;
 
-use Guzzle\Service\Aws\AwsException;
+use Guzzle\Aws\AwsException;
 
 /**
  * Amazon SQS exception

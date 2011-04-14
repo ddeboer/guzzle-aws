@@ -4,14 +4,14 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws;
+namespace Guzzle\Aws\Mws;
 
 use Guzzle\Common\Inspector;
 use Guzzle\Common\Inflector;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Aws\AbstractClient;
-use Guzzle\Service\Aws\QueryStringAuthPlugin;
-use Guzzle\Service\Aws\Signature\SignatureV2;
+use Guzzle\Aws\AbstractClient;
+use Guzzle\Aws\QueryStringAuthPlugin;
+use Guzzle\Aws\Signature\SignatureV2;
 
 /**
  * Client for Amazon Marketplace Web Service
@@ -80,11 +80,11 @@ class MwsClient extends AbstractClient
      *
      * @param string $feedType The type of feed ot retrieve
      *
-     * @return \Guzzle\Service\Aws\Mws\Model\Feed\AbstractFeed
+     * @return \Guzzle\Aws\Mws\Model\Feed\AbstractFeed
      */
     public function getFeed($feedType)
     {
-        $class = 'Guzzle\\Service\\Aws\\Mws\\Model\\Feed\\'
+        $class = 'Guzzle\\Aws\\Mws\\Model\\Feed\\'
             . ucfirst(Inflector::camel($feedType));
 
         return new $class($this);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws;
+namespace Guzzle\Aws\Tests\Mws;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\MwsClient;
+use Guzzle\Aws\Mws\MwsClient;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\MwsClient
- * @covers Guzzle\Service\Aws\AbstractClient
+ * @covers Guzzle\Aws\Mws\MwsClient
+ * @covers Guzzle\Aws\AbstractClient
  *
  * @author Harold Asbridge <harold@shoebacca.com>
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -26,6 +26,6 @@ class MwsClientTest extends GuzzleTestCase
         ));
 
         $feed = $client->getFeed('order_fulfillment');
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\Feed\OrderFulfillment', $feed);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Model\Feed\OrderFulfillment', $feed);
     }
 }

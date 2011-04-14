@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command\Object;
+namespace Guzzle\Aws\S3\Command\Object;
 
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 use Guzzle\Http\QueryString;
 use Guzzle\Http\Message\Request;
 use Guzzle\Guzzle;

@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command\Bucket;
+namespace Guzzle\Aws\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 use Guzzle\Service\Command\CommandSet;
 use Guzzle\Service\ResourceIteratorApplyBatched;
-use Guzzle\Service\Aws\S3\Command\PutAcl;
-use Guzzle\Service\Aws\S3\Model\Acl;
+use Guzzle\Aws\S3\Command\PutAcl;
+use Guzzle\Aws\S3\Model\Acl;
 
 /**
  * Set an ACL on each object within a bucket

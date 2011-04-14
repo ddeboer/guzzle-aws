@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
 use Guzzle\Guzzle;
 
@@ -14,12 +14,12 @@ use Guzzle\Guzzle;
 class HeadObjectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\HeadObject
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObject
+     * @covers Guzzle\Aws\S3\Command\Object\HeadObject
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObject
      */
     public function testHeadObject()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Object\HeadObject();
+        $command = new \Guzzle\Aws\S3\Command\Object\HeadObject();
         $command->setBucket('test')->setKey('key');
 
         $command->setRange('bytes=500-999');

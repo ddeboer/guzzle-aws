@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws\Command;
+namespace Guzzle\Aws\Mws\Command;
 
 use Guzzle\Service\Command\AbstractCommand;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Common\Inflector;
-use Guzzle\Service\Aws\Mws\Model\CsvReport;
-use Guzzle\Service\Aws\Mws\Model\ResultIterator;
+use Guzzle\Aws\Mws\Model\CsvReport;
+use Guzzle\Aws\Mws\Model\ResultIterator;
 use Guzzle\Common\XmlElement;
 
 /**

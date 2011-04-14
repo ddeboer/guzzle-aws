@@ -4,12 +4,12 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command\Bucket;
+namespace Guzzle\Aws\S3\Command\Bucket;
 
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Model\VersionBucketIterator;
-use Guzzle\Service\Aws\S3\Command\AbstractS3BucketCommand;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Model\VersionBucketIterator;
+use Guzzle\Aws\S3\Command\AbstractS3BucketCommand;
 
 /**
  * List metadata about all of the versions of objects in a bucket. You can also

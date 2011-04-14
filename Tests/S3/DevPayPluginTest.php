@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3;
+namespace Guzzle\Aws\Tests\S3;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\S3Client;
 class DevPayPluginTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\DevPayPlugin
+     * @covers Guzzle\Aws\S3\DevPayPlugin
      */
     public function testAddsDevPayTokens()
     {

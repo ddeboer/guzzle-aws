@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /*
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportCount
+ * @covers Guzzle\Aws\Mws\Command\GetReportCount
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportCountTest extends GuzzleTestCase
@@ -25,7 +25,7 @@ class GetReportCountTest extends GuzzleTestCase
             ->setAvailableFromDate(new \DateTime('2011-01-01'))
             ->setAvailableToDate(new \DateTime());
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportCount', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportCount', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

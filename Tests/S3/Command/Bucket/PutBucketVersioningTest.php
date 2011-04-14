@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,11 +14,11 @@ use Guzzle\Service\Aws\S3\S3Client;
 class PutBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketVersioning
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketVersioning
      */
     public function testEnableVersioning()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketVersioning();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketVersioning();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setStatus(true));
         $this->assertSame($command, $command->setMfaDelete(true));
@@ -36,11 +36,11 @@ class PutBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketVersioning
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketVersioning
      */
     public function testDisableVersioning()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketVersioning();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketVersioning();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setStatus(false));
 

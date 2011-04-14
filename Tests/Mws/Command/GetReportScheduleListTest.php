@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportScheduleList
+ * @covers Guzzle\Aws\Mws\Command\GetReportScheduleList
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportScheduleListTest extends GuzzleTestCase
@@ -22,9 +22,9 @@ class GetReportScheduleListTest extends GuzzleTestCase
                 Type\ReportType::MERCHANT_LISTINGS_REPORT
             ));
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportScheduleList', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportScheduleList', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Model\ResultIterator', $response);
     }
 }

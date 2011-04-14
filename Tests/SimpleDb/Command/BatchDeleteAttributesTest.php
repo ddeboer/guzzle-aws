@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,15 +12,15 @@ namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 class BatchDeleteAttributesTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchDeleteAttributes
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractBatchedCommand
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchDeleteAttributes
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractBatchedCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommand
      */
     public function testBatchDeleteAttributes()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchDeleteAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\BatchDeleteAttributes();
         $this->assertSame($command, $command->setDomain('test'));
 
         $command->addItem('JumboFez', array(

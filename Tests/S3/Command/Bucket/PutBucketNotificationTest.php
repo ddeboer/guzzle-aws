@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Bucket\PutBucketNotification;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -15,7 +15,7 @@ use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification;
 class PutBucketNotificationTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketNotification
      */
     public function testPutNotification()
     {
@@ -29,7 +29,7 @@ class PutBucketNotificationTest extends \Guzzle\Tests\GuzzleTestCase
 
         $xml = new \SimpleXMLElement($notification);
 
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketNotification();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setNotification($xml));
 
@@ -46,13 +46,13 @@ class PutBucketNotificationTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketNotification
      */
     public function testPutNotificationOff()
     {
         $notification = '<NotificationConfiguration />';
 
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketNotification();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketNotification();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setNotification($notification));
 

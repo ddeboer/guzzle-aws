@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb\Model;
+namespace Guzzle\Aws\SimpleDb\Model;
 
 /**
  * A collection of batched Amazon SimpleDB items to manipulate

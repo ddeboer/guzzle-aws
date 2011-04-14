@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\CancelReportRequests
+ * @covers Guzzle\Aws\Mws\Command\CancelReportRequests
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class CancelReportRequestsTest extends GuzzleTestCase
@@ -30,7 +30,7 @@ class CancelReportRequestsTest extends GuzzleTestCase
             ))
             ->setRequestedFromDate(new \DateTime('2011-01-01'))
             ->setRequestedToDate(new \DateTime());
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\CancelReportRequests', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\CancelReportRequests', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

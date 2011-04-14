@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Signature;
+namespace Guzzle\Aws\Signature;
 
-use Guzzle\Service\Aws\AwsException;
+use Guzzle\Aws\AwsException;
 
 /**
  * Abstract class to construct an AWS signature.
@@ -46,7 +46,7 @@ abstract class AbstractSignature
      * @param string $awsAccessKeyId Your AWS Access Key ID
      * @param string $awsSecretAccessKey Your AWS Secret Access Key.
      *
-     * @throws Guzzle\Service\Aws\AwsException if an AWS Secret Access Key is not passed.
+     * @throws Guzzle\Aws\AwsException if an AWS Secret Access Key is not passed.
      */
     public function __construct($awsAccessKeyId, $awsSecretAccessKey)
     {

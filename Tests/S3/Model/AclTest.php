@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Model;
+namespace Guzzle\Aws\Tests\S3\Model;
 
-use Guzzle\Service\Aws\S3\Model\Acl;
+use Guzzle\Aws\S3\Model\Acl;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,12 +14,12 @@ use Guzzle\Service\Aws\S3\Model\Acl;
 class AclTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::__construct
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::getOwnerId
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::setOwnerId
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::getOwnerDisplayName
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::setOwnerDisplayName
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::__toString
+     * @covers Guzzle\Aws\S3\Model\Acl::__construct
+     * @covers Guzzle\Aws\S3\Model\Acl::getOwnerId
+     * @covers Guzzle\Aws\S3\Model\Acl::setOwnerId
+     * @covers Guzzle\Aws\S3\Model\Acl::getOwnerDisplayName
+     * @covers Guzzle\Aws\S3\Model\Acl::setOwnerDisplayName
+     * @covers Guzzle\Aws\S3\Model\Acl::__toString
      */
     public function testHoldsOwnerInformation()
     {
@@ -42,7 +42,7 @@ class AclTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\Acl::__construct
+     * @covers Guzzle\Aws\S3\Model\Acl::__construct
      */
     public function testCanBuildFromExisting()
     {
@@ -52,6 +52,6 @@ class AclTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('Bob', $acl->getOwnerDisplayName());
         $this->assertEquals('test_id', $acl->getOwnerId());
 
-        $this->assertTrue($acl->getGrantList()->hasGrant('Group', \Guzzle\Service\Aws\S3\S3Client::GRANT_AUTH, \Guzzle\Service\Aws\S3\S3Client::GRANT_FULL_CONTROL));
+        $this->assertTrue($acl->getGrantList()->hasGrant('Group', \Guzzle\Aws\S3\S3Client::GRANT_AUTH, \Guzzle\Aws\S3\S3Client::GRANT_FULL_CONTROL));
     }
 }

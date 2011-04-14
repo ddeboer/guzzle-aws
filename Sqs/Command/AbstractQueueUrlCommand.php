@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Sqs\Command;
+namespace Guzzle\Aws\Sqs\Command;
 
 /**
  * Abstract Amazon SQS command which uses a queue URL

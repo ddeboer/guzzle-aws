@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,11 +12,11 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class PutBucketTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucket
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucket
      */
     public function testPutBucket()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucket();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucket();
         $command->setBucket('test');
         $command->setAcl('public-read');
         $command->setRegion('us-west-1');

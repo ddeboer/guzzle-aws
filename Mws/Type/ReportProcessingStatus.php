@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws\Type;
+namespace Guzzle\Aws\Mws\Type;
 
 /**
  * Report processing statuses

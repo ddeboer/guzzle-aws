@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,7 +12,7 @@ namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 class TruncateDomainTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\TruncateDomain
+     * @covers Guzzle\Aws\SimpleDb\Command\TruncateDomain
      */
     public function testTruncateDomain()
     {
@@ -24,7 +24,7 @@ class TruncateDomainTest extends \Guzzle\Tests\GuzzleTestCase
             'CreateDomainResponse'
         ));
 
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\TruncateDomain();
+        $command = new \Guzzle\Aws\SimpleDb\Command\TruncateDomain();
         $this->assertSame($command, $command->setDomain('test'));
         $client->execute($command);
 

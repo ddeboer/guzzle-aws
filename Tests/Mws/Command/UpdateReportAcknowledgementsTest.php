@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\UpdateReportAcknowledgements
+ * @covers Guzzle\Aws\Mws\Command\UpdateReportAcknowledgements
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class UpdateReportAcknowledgementsTest extends GuzzleTestCase
@@ -22,7 +22,7 @@ class UpdateReportAcknowledgementsTest extends GuzzleTestCase
                 12345
             ))
             ->setAcknowledged(true);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\UpdateReportAcknowledgements', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\UpdateReportAcknowledgements', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
-use Guzzle\Service\Aws\S3\Command\Object\ListParts;
+use Guzzle\Aws\S3\Command\Object\ListParts;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,8 +14,8 @@ use Guzzle\Service\Aws\S3\Command\Object\ListParts;
 class ListPartsTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\ListParts
-     * @covers Guzzle\Service\Aws\S3\Model\ListPartsIterator
+     * @covers Guzzle\Aws\S3\Command\Object\ListParts
+     * @covers Guzzle\Aws\S3\Model\ListPartsIterator
      */
     public function testListParts()
     {
@@ -69,8 +69,8 @@ class ListPartsTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\ListParts
-     * @covers Guzzle\Service\Aws\S3\Model\ListPartsIterator
+     * @covers Guzzle\Aws\S3\Command\Object\ListParts
+     * @covers Guzzle\Aws\S3\Model\ListPartsIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testListPartsExhaustive()
@@ -121,8 +121,8 @@ class ListPartsTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\ListParts
-     * @covers Guzzle\Service\Aws\S3\Model\ListPartsIterator
+     * @covers Guzzle\Aws\S3\Command\Object\ListParts
+     * @covers Guzzle\Aws\S3\Model\ListPartsIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testListPartsExhaustiveWithLimit()

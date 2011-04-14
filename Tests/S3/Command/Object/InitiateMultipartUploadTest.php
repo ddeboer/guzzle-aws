@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
-use Guzzle\Service\Aws\S3\Command\Object\InitiateMultipartUpload;
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Object\InitiateMultipartUpload;
+use Guzzle\Aws\S3\S3Client;
 use Guzzle\Guzzle;
 
 /**
@@ -16,9 +16,9 @@ use Guzzle\Guzzle;
 class InitiateMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\InitiateMultipartUpload
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObject
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObjectPut
+     * @covers Guzzle\Aws\S3\Command\Object\InitiateMultipartUpload
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObject
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObjectPut
      */
     public function testInitiate()
     {

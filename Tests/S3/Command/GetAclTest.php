@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command;
+namespace Guzzle\Aws\Tests\S3\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,11 +12,11 @@ namespace Guzzle\Service\Aws\Tests\S3\Command;
 class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\GetAcl
+     * @covers Guzzle\Aws\S3\Command\GetAcl
      */
     public function testGetObjectAcl()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\GetAcl();
+        $command = new \Guzzle\Aws\S3\Command\GetAcl();
         $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test');
         $command->setKey('key');
@@ -27,7 +27,7 @@ class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('http://test.s3.amazonaws.com/key?acl', $command->getRequest()->getUrl());
 
         $acl = $command->getResult();
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\S3\\Model\\Acl', $acl);
+        $this->assertInstanceOf('Guzzle\\Aws\\S3\\Model\\Acl', $acl);
 
         $this->assertTrue($acl->getGrantList()->hasGrant('CanonicalUser', '8a6925ce4adf588a453214a379004fef'));
         $this->assertEquals('8a6925ce4adf588a4532aa379004fef', $acl->getOwnerId());
@@ -35,11 +35,11 @@ class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\GetAcl
+     * @covers Guzzle\Aws\S3\Command\GetAcl
      */
     public function testGetBucketAcl()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\GetAcl();
+        $command = new \Guzzle\Aws\S3\Command\GetAcl();
         $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test');
         $this->setMockResponse($client, 'GetBucketAclResponse');
@@ -49,7 +49,7 @@ class GetAclTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertEquals('http://test.s3.amazonaws.com/?acl', $command->getRequest()->getUrl());
 
         $acl = $command->getResult();
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\S3\\Model\\Acl', $acl);
+        $this->assertInstanceOf('Guzzle\\Aws\\S3\\Model\\Acl', $acl);
 
         $this->assertTrue($acl->getGrantList()->hasGrant('CanonicalUser', '8a6925ce4adf57f21c32aa379004fef'));
         $this->assertEquals('8a6925ce4adee97f21c32aa379004fef', $acl->getOwnerId());

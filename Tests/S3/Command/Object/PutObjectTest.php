@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
 use Guzzle\Guzzle;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Object\PutObject;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Object\PutObject;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -16,9 +16,9 @@ use Guzzle\Service\Aws\S3\Command\Object\PutObject;
 class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\PutObject
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObject
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObjectPut
+     * @covers Guzzle\Aws\S3\Command\Object\PutObject
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObject
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObjectPut
      */
     public function testPutObject()
     {
@@ -55,7 +55,7 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\PutObject
+     * @covers Guzzle\Aws\S3\Command\Object\PutObject
      */
     public function testPutObjectNoChecksum()
     {
@@ -72,7 +72,7 @@ class PutObjectTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObjectPut::setStorageClass
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObjectPut::setStorageClass
      * @expectedException InvalidArgumentException
      * @expectedExceptionMessage $storageClass must be one of STANDARD or REDUCED_REDUNDANCY
      */

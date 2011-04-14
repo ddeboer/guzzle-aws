@@ -6,13 +6,13 @@
             <param name="access_key" value="12345" />
             <param name="secret_key" value="abcd" />
         </client>
-        <client name="test.s3" class="Guzzle.Service.Aws.S3.S3Client" extends="test.abstract.aws">
+        <client name="test.s3" class="Guzzle.Aws.S3.S3Client" extends="test.abstract.aws">
             <param name="devpay_product_token" value="" />
             <param name="devpay_user_token" value="" />
         </client>
-        <client name="test.simple_db" class="Guzzle.Service.Aws.SimpleDb.SimpleDbClient" extends="test.abstract.aws" />
-        <client name="test.sqs" class="Guzzle.Service.Aws.Sqs.SqsClient" extends="test.abstract.aws" />
-        <client name="test.mws" class="Guzzle.Service.Aws.Mws.MwsClient" extends="test.abstract.aws">
+        <client name="test.simple_db" class="Guzzle.Aws.SimpleDb.SimpleDbClient" extends="test.abstract.aws" />
+        <client name="test.sqs" class="Guzzle.Aws.Sqs.SqsClient" extends="test.abstract.aws" />
+        <client name="test.mws" class="Guzzle.Aws.Mws.MwsClient" extends="test.abstract.aws">
             <param name="merchant_id" value="ABCDE" />
             <param name="marketplace_id" value="FGHIJ" />
             <param name="application_name" value="GuzzleTest" />

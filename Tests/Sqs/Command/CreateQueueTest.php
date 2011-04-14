@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\Sqs\Command;
+namespace Guzzle\Aws\Tests\Sqs\Command;
 
-use Guzzle\Service\Aws\Sqs\Command\CreateQueue;
+use Guzzle\Aws\Sqs\Command\CreateQueue;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,8 +14,8 @@ use Guzzle\Service\Aws\Sqs\Command\CreateQueue;
 class CreateQueueTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\Sqs\Command\CreateQueue
-     * @covers Guzzle\Service\Aws\Sqs\Command\AbstractCommand
+     * @covers Guzzle\Aws\Sqs\Command\CreateQueue
+     * @covers Guzzle\Aws\Sqs\Command\AbstractCommand
      */
     public function testCreateQueue()
     {

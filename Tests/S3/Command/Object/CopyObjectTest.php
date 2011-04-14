@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
 use Guzzle\Http\Message\Request;
 use Guzzle\Guzzle;
@@ -15,15 +15,15 @@ use Guzzle\Guzzle;
 class CopyObjectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\CopyObject
+     * @covers Guzzle\Aws\S3\Command\Object\CopyObject
      */
     public function testCopyObject()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Object\CopyObject();
+        $command = new \Guzzle\Aws\S3\Command\Object\CopyObject();
 
         $command->setBucket('test')->setKey('key');
         $this->assertSame($command, $command->setCopySource('source_bucket', 'source_key'));
-        $this->assertSame($command, $command->setAcl(\Guzzle\Service\Aws\S3\S3Client::ACL_PUBLIC_READ));
+        $this->assertSame($command, $command->setAcl(\Guzzle\Aws\S3\S3Client::ACL_PUBLIC_READ));
         $this->assertSame($command, $command->setStorageClass('STANDARD'));
         $this->assertSame($command, $command->setMetadataDirective('COPY'));
 
@@ -61,24 +61,24 @@ class CopyObjectTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\CopyObject::setStorageClass
+     * @covers Guzzle\Aws\S3\Command\Object\CopyObject::setStorageClass
      * @expectedException InvalidArgumentException
      * @expectedExceptionMessage $storageClass must be one of STANDARD or REDUCED_REDUNDANCY
      */
     public function testValidatesStorageClass()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Object\CopyObject();
+        $command = new \Guzzle\Aws\S3\Command\Object\CopyObject();
         $command->setStorageClass('error');
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\CopyObject::setMetadataDirective
+     * @covers Guzzle\Aws\S3\Command\Object\CopyObject::setMetadataDirective
      * @expectedException InvalidArgumentException
      * @expectedExceptionMessage $directive must be one of COPY or REPLACE
      */
     public function testValidatesMetadataDirective()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Object\CopyObject();
+        $command = new \Guzzle\Aws\S3\Command\Object\CopyObject();
         $command->setMetadataDirective('error');
     }
 }

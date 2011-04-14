@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\Signature;
+namespace Guzzle\Aws\Tests\Signature;
 
-use Guzzle\Service\Aws\Signature\SignatureV1;
+use Guzzle\Aws\Signature\SignatureV1;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -27,7 +27,7 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV1::calculateStringToSign
      */
     public function testCalculateStringToSignAlternateSort()
     {
@@ -42,7 +42,7 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV1::calculateStringToSign
      */
     public function testCalculateStringToSignIgnoreVariable()
     {
@@ -57,7 +57,7 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV1::calculateStringToSign
      */
     public function testCalculateStringToSignNullParameters()
     {
@@ -70,7 +70,7 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV1::calculateStringToSign
      */
     public function testCalculateStringToSignEmptyRequest()
     {
@@ -78,8 +78,8 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::getAwsHashingAlgorithm
-     * @covers Guzzle\Service\Aws\Signature\SignatureV1::getPhpHashingAlgorithm
+     * @covers Guzzle\Aws\Signature\SignatureV1::getAwsHashingAlgorithm
+     * @covers Guzzle\Aws\Signature\SignatureV1::getPhpHashingAlgorithm
      */
     public function testHashingAlgorithms()
     {
@@ -88,11 +88,11 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::__construct
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::getAccessKeyId
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::getSecretAccessKey
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::getVersion
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::signString
+     * @covers Guzzle\Aws\Signature\AbstractSignature::__construct
+     * @covers Guzzle\Aws\Signature\AbstractSignature::getAccessKeyId
+     * @covers Guzzle\Aws\Signature\AbstractSignature::getSecretAccessKey
+     * @covers Guzzle\Aws\Signature\AbstractSignature::getVersion
+     * @covers Guzzle\Aws\Signature\AbstractSignature::signString
      */
     public function testAbstractSignature()
     {
@@ -108,8 +108,8 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::__construct
-     * @expectedException Guzzle\Service\Aws\AwsException
+     * @covers Guzzle\Aws\Signature\AbstractSignature::__construct
+     * @expectedException Guzzle\Aws\AwsException
      */
     public function testAbstractSignatureRequiresAccessKeyId()
     {
@@ -117,8 +117,8 @@ class SignatureV1Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\AbstractSignature::__construct
-     * @expectedException Guzzle\Service\Aws\AwsException
+     * @covers Guzzle\Aws\Signature\AbstractSignature::__construct
+     * @expectedException Guzzle\Aws\AwsException
      */
     public function testAbstractSignatureRequiresSecretAccessKey()
     {

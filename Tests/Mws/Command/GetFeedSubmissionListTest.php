@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionList
+ * @covers Guzzle\Aws\Mws\Command\GetFeedSubmissionList
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetFeedSubmissionListTest extends GuzzleTestCase
@@ -31,9 +31,9 @@ class GetFeedSubmissionListTest extends GuzzleTestCase
             ->setSubmittedFromDate(new \DateTime('2011-01-01'))
             ->setSubmittedToDate(new \DateTime());
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionList', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetFeedSubmissionList', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Model\ResultIterator', $response);
     }
 }

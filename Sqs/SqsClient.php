@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Sqs;
+namespace Guzzle\Aws\Sqs;
 
 use Guzzle\Common\Inspector;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Aws\AbstractClient;
-use Guzzle\Service\Aws\QueryStringAuthPlugin;
-use Guzzle\Service\Aws\Signature\SignatureV2;
+use Guzzle\Aws\AbstractClient;
+use Guzzle\Aws\QueryStringAuthPlugin;
+use Guzzle\Aws\Signature\SignatureV2;
 
 /**
  * Client for interacting with Amazon SQS

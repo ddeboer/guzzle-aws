@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3;
+namespace Guzzle\Aws\Tests\S3;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -189,12 +189,12 @@ class S3SignatureTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\S3Signature
+     * @covers Guzzle\Aws\S3\S3Signature
      * @dataProvider dataProvider
      */
     public function testCreateCanonicalizedString($input, $result)
     {
-        $signature = new \Guzzle\Service\Aws\S3\S3Signature('a', 's');
+        $signature = new \Guzzle\Aws\S3\S3Signature('a', 's');
         $this->assertEquals($result, $signature->createCanonicalizedString($input['headers'], $input['path'], $input['verb']));
     }
 }

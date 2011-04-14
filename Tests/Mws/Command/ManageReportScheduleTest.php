@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\ManageReportSchedule
+ * @covers Guzzle\Aws\Mws\Command\ManageReportSchedule
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class ManageReportScheduleTest extends GuzzleTestCase
@@ -21,7 +21,7 @@ class ManageReportScheduleTest extends GuzzleTestCase
             ->setReportType(Type\ReportType::MERCHANT_LISTINGS_REPORT)
             ->setSchedule(Type\Schedule::EVERY_HOUR)
             ->setScheduledDate(new \DateTime());
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\ManageReportSchedule', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\ManageReportSchedule', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Model;
+namespace Guzzle\Aws\Tests\Mws\Model;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Model\CsvReport;
+use Guzzle\Aws\Mws\Model\CsvReport;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Model\CsvReport
+ * @covers Guzzle\Aws\Mws\Model\CsvReport
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class CsvReportTest extends GuzzleTestCase

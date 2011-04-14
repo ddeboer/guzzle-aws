@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,12 +12,12 @@ namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 class ListDomainsTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\ListDomains
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\ListDomains
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommand
      */
     public function testListDomains()
     {
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\ListDomains();
+        $command = new \Guzzle\Aws\SimpleDb\Command\ListDomains();
         $this->assertSame($command, $command->setMaxDomains(100));
         $this->assertSame($command, $command->setIterate(true));
         $this->assertSame($command, $command->setNextToken(null));

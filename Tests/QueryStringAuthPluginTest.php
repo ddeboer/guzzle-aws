@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests;
+namespace Guzzle\Aws\Tests;
 
 use Guzzle\Common\Event\EventManager;
 use Guzzle\Http\Message\RequestFactory;
 use Guzzle\Service\Command\CommandSet;
-use Guzzle\Service\Aws\Signature\SignatureV2;
-use Guzzle\Service\Aws\QueryStringAuthPlugin;
+use Guzzle\Aws\Signature\SignatureV2;
+use Guzzle\Aws\QueryStringAuthPlugin;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -18,7 +18,7 @@ use Guzzle\Service\Aws\QueryStringAuthPlugin;
 class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\QueryStringAuthPlugin
+     * @covers Guzzle\Aws\QueryStringAuthPlugin
      */
     public function testAddsQueryStringAuth()
     {
@@ -42,12 +42,12 @@ class QueryStringAuthPluginTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\QueryStringAuthPlugin
+     * @covers Guzzle\Aws\QueryStringAuthPlugin
      */
     public function testAddsAuthWhenUsingCommandSets()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Service\\Aws\\QueryStringAuthPlugin'));
+        $this->assertTrue($client->getEventManager()->hasObserver('Guzzle\\Aws\\QueryStringAuthPlugin'));
 
         $this->setMockResponse($client, array(
             'DeleteDomainResponse',

@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb;
+namespace Guzzle\Aws\SimpleDb;
 
-use Guzzle\Service\Aws\AwsException;
+use Guzzle\Aws\AwsException;
 
 /**
  * Amazon SimpleDB exception

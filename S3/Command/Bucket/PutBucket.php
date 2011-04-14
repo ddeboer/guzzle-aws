@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command\Bucket;
+namespace Guzzle\Aws\S3\Command\Bucket;
 
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\EntityBody;
-use Guzzle\Service\Aws\S3\Command\AbstractS3BucketCommand;
+use Guzzle\Aws\S3\Command\AbstractS3BucketCommand;
 
 /**
  * Create a new bucket

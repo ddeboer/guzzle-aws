@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
-use Guzzle\Service\Aws\S3\Command\Object\AbortMultipartUpload;
+use Guzzle\Aws\S3\Command\Object\AbortMultipartUpload;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\Command\Object\AbortMultipartUpload;
 class AbortMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbortMultipartUpload
+     * @covers Guzzle\Aws\S3\Command\Object\AbortMultipartUpload
      */
     public function testAbort()
     {

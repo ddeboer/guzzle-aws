@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws;
+namespace Guzzle\Aws;
 
 use Guzzle\Service\Client;
-use Guzzle\Service\Aws\Signature\AbstractSignature;
+use Guzzle\Aws\Signature\AbstractSignature;
 
 /**
  * Abstract AWS Client

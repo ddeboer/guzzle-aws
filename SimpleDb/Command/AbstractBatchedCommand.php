@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb\Command;
+namespace Guzzle\Aws\SimpleDb\Command;
 
-use Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection;
+use Guzzle\Aws\SimpleDb\Model\BatchedItemCollection;
 
 /**
  * Abstract batched SimpleDB command

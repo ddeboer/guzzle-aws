@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\Model\Acl;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl;
+use Guzzle\Aws\S3\Model\Acl;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Bucket\PutBucketContentsAcl;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -16,10 +16,10 @@ use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl;
 class PutBucketContentsAclTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl::process
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl::setAcl
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketContentsAcl::getResult
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketContentsAcl
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketContentsAcl::process
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketContentsAcl::setAcl
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketContentsAcl::getResult
      * @covers Guzzle\Service\ResourceIteratorApplyBatched
      */
     public function testIterativeAclSet()

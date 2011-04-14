@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Model;
+namespace Guzzle\Aws\Tests\SimpleDb\Model;
 
-use Guzzle\Service\Aws\SimpleDb\Command\Select;
+use Guzzle\Aws\SimpleDb\Command\Select;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -15,8 +15,8 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
      * @covers Guzzle\Service\ResourceIterator
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\SelectIterator
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\Select
+     * @covers Guzzle\Aws\SimpleDb\Model\SelectIterator
+     * @covers Guzzle\Aws\SimpleDb\Command\Select
      */
     public function testSelectIterator()
     {
@@ -25,7 +25,7 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setSelectExpression('select * from mydomain where Title = \'The Right Stuff\'');
         $this->setMockResponse($client, array('SelectResponseWithNextToken', 'SelectResponse'));
         $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
+        $this->assertInstanceOf('Guzzle\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
 
         $this->assertEquals('select * from mydomain where Title = \'The Right Stuff\'', $command->getResult()->getSelectExpression());
         $this->assertFalse($command->getResult()->isConsistentRead());
@@ -69,8 +69,8 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
      * @covers Guzzle\Service\ResourceIterator::current
      * @covers Guzzle\Service\ResourceIterator::key
      * @covers Guzzle\Service\ResourceIterator::calculatePageSize
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\SelectIterator
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\Select
+     * @covers Guzzle\Aws\SimpleDb\Model\SelectIterator
+     * @covers Guzzle\Aws\SimpleDb\Command\Select
      */
     public function testSelectIteratorWithLimit()
     {
@@ -80,7 +80,7 @@ class SelectIteratorTest extends \Guzzle\Tests\GuzzleTestCase
         $command->setLimit(2);
         $this->setMockResponse($client, array('SelectResponseWithNextToken', 'SelectResponse'));
         $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
+        $this->assertInstanceOf('Guzzle\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
 
         $this->assertEquals(2, count($command->getResult()));
         $all = array();

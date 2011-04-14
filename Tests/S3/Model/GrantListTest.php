@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Model;
+namespace Guzzle\Aws\Tests\S3\Model;
 
-use Guzzle\Service\Aws\S3\Model\Acl;
-use Guzzle\Service\Aws\S3\Model\GrantList;
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Model\Acl;
+use Guzzle\Aws\S3\Model\GrantList;
+use Guzzle\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -16,26 +16,26 @@ use Guzzle\Service\Aws\S3\S3Client;
 class GrantListTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\GrantList::__construct
+     * @covers Guzzle\Aws\S3\Model\GrantList::__construct
      */
     public function testCanBuildFromExisting()
     {
         $l = new GrantList(array(
             array(
                 'type' => 'Group',
-                'grantee' => \Guzzle\Service\Aws\S3\S3Client::GRANT_AUTH,
+                'grantee' => \Guzzle\Aws\S3\S3Client::GRANT_AUTH,
                 'permission' => 'FULL_CONTROL'
             )
         ));
 
-        $this->assertTrue($l->hasGrant('Group', \Guzzle\Service\Aws\S3\S3Client::GRANT_AUTH, 'FULL_CONTROL'));
+        $this->assertTrue($l->hasGrant('Group', \Guzzle\Aws\S3\S3Client::GRANT_AUTH, 'FULL_CONTROL'));
 
         $l = new GrantList(new \SimpleXMLElement('<Grant><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI>http://acs.amazonaws.com/groups/global/AuthenticatedUsers</URI></Grantee><Permission>FULL_CONTROL</Permission></Grant>'));
-        $this->assertTrue($l->hasGrant('Group', \Guzzle\Service\Aws\S3\S3Client::GRANT_AUTH, 'FULL_CONTROL'));
+        $this->assertTrue($l->hasGrant('Group', \Guzzle\Aws\S3\S3Client::GRANT_AUTH, 'FULL_CONTROL'));
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\GrantList
+     * @covers Guzzle\Aws\S3\Model\GrantList
      */
     public function testHandlesGrantStorage()
     {
@@ -102,7 +102,7 @@ class GrantListTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\GrantList::__toString
+     * @covers Guzzle\Aws\S3\Model\GrantList::__toString
      */
     public function testCanRepresentAsString()
     {

@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
-use Guzzle\Service\Aws\S3\Command\Object\UploadPart;
+use Guzzle\Aws\S3\Command\Object\UploadPart;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\Command\Object\UploadPart;
 class UploadPartTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\UploadPart
+     * @covers Guzzle\Aws\S3\Command\Object\UploadPart
      */
     public function testUploadPart()
     {
@@ -38,7 +38,7 @@ class UploadPartTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\UploadPart
+     * @covers Guzzle\Aws\S3\Command\Object\UploadPart
      */
     public function testUploadPartNoValidation()
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportScheduleListByNextToken
+ * @covers Guzzle\Aws\Mws\Command\GetReportScheduleListByNextToken
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportScheduleListByNextTokenTest extends GuzzleTestCase
@@ -19,7 +19,7 @@ class GetReportScheduleListByNextTokenTest extends GuzzleTestCase
         $command = $client->getCommand('get_report_schedule_list_by_next_token')
             ->setNextToken('asdf');
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportScheduleListByNextToken', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportScheduleListByNextToken', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

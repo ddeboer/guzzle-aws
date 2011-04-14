@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\ListOrdersByNextToken
+ * @covers Guzzle\Aws\Mws\Command\ListOrdersByNextToken
  */
 class ListOrdersByNextTokenTest extends \Guzzle\Tests\GuzzleTest
 {
@@ -19,7 +19,7 @@ class ListOrdersByNextTokenTest extends \Guzzle\Tests\GuzzleTest
         $command = $client->getCommand('list_orders_by_next_token')
                 ->setNextToken('ASDF');
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\ListOrdersByNextToken', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\ListOrdersByNextToken', $command);
 
         $response = $client->execute($command);
 

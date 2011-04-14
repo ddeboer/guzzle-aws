@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /*
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportRequestCount
+ * @covers Guzzle\Aws\Mws\Command\GetReportRequestCount
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportRequestCountText extends GuzzleTestCase
@@ -27,7 +27,7 @@ class GetReportRequestCountText extends GuzzleTestCase
             ->setRequestedFromDate(new \DateTime('2011-01-01'))
             ->setRequestedToDate(new \DateTime());
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportRequestCount', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportRequestCount', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

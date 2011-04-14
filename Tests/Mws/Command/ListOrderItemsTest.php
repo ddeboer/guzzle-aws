@@ -1,11 +1,11 @@
 <?php
 
-namespace Guzzle\Service\Aws\Test\Mws\Command;
+namespace Guzzle\Aws\Test\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\ListOrderItems
+ * @covers Guzzle\Aws\Mws\Command\ListOrderItems
  */
 class ListOrderItemsTest extends GuzzleTestCase
 {
@@ -19,9 +19,9 @@ class ListOrderItemsTest extends GuzzleTestCase
             ->setAmazonOrderId('104-1917270-6910603');
 
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\ListOrderItems', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\ListOrderItems', $command);
 
         $response = $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Model\ResultIterator', $response);
     }
 }

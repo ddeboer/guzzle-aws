@@ -1,11 +1,11 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionResult
+ * @covers Guzzle\Aws\Mws\Command\GetFeedSubmissionResult
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetFeedSubmissionResult extends GuzzleTestCase
@@ -18,7 +18,7 @@ class GetFeedSubmissionResult extends GuzzleTestCase
 
         $command = $client->getCommand('get_feed_submission_result')
             ->setFeedSubmissionId(12345);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionResult', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetFeedSubmissionResult', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

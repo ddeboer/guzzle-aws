@@ -11,11 +11,11 @@ building RESTful web service clients in PHP.
 
 ## Installation
 
-Add guzzle-aws to the src/Guzzle/Service/Aws directory of your Guzzle
+Add guzzle-aws to the src/Guzzle/Aws directory of your Guzzle
 installation:
 
     cd /path/to/guzzle
-    git submodule add git://github.com/guzzle/guzzle-aws.git ./src/Guzzle/Service/Aws
+    git submodule add git://github.com/guzzle/guzzle-aws.git ./src/Guzzle/Aws
 
 You can now build a phar file containing guzzle-aws and the main guzzle framework:
 

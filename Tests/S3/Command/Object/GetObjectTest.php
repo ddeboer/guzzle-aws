@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
 use Guzzle\Http\EntityBody;
-use Guzzle\Service\Aws\S3\Command\Object\GetObject;
+use Guzzle\Aws\S3\Command\Object\GetObject;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -15,8 +15,8 @@ use Guzzle\Service\Aws\S3\Command\Object\GetObject;
 class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\GetObject
-     * @covers Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObject
+     * @covers Guzzle\Aws\S3\Command\Object\GetObject
+     * @covers Guzzle\Aws\S3\Command\Object\AbstractRequestObject
      */
     public function testGetObject()
     {
@@ -33,7 +33,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\GetObject
+     * @covers Guzzle\Aws\S3\Command\Object\GetObject
      */
     public function testGetObjectTorrent()
     {
@@ -46,7 +46,7 @@ class GetObjectTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\GetObject
+     * @covers Guzzle\Aws\S3\Command\Object\GetObject
      */
     public function testAllowsCustomBody()
     {

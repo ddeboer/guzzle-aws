@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,13 +12,13 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\ListBucket
-     * @covers Guzzle\Service\Aws\S3\Model\BucketIterator
+     * @covers Guzzle\Aws\S3\Command\Bucket\ListBucket
+     * @covers Guzzle\Aws\S3\Model\BucketIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testListBucket()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\ListBucket();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\ListBucket();
         $command->setBucket('bucket');
         $command->setLimit(100);
         $this->assertEquals(100, $command->get('limit'));
@@ -59,13 +59,13 @@ class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\ListBucket
-     * @covers Guzzle\Service\Aws\S3\Model\BucketIterator
+     * @covers Guzzle\Aws\S3\Command\Bucket\ListBucket
+     * @covers Guzzle\Aws\S3\Model\BucketIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testListBucketExhaustive()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\ListBucket();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\ListBucket();
         $command->setBucket('johnsmith');
         $command->setLimit(20);
         $client = $this->getServiceBuilder()->get('test.s3');
@@ -116,13 +116,13 @@ class ListBucketTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\ListBucket
-     * @covers Guzzle\Service\Aws\S3\Model\BucketIterator
+     * @covers Guzzle\Aws\S3\Command\Bucket\ListBucket
+     * @covers Guzzle\Aws\S3\Model\BucketIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testListBucketExhaustiveWithLimit()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\ListBucket();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\ListBucket();
         $command->setBucket('johnsmith')
                 ->setLimit(3);
 

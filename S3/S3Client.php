@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3;
+namespace Guzzle\Aws\S3;
 
 use Guzzle\Guzzle;
 use Guzzle\Common\Inspector;
@@ -12,7 +12,7 @@ use Guzzle\Http\QueryString;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Message\Request;
 use Guzzle\Http\Plugin\ExponentialBackoffPlugin;
-use Guzzle\Service\Aws\AbstractClient;
+use Guzzle\Aws\AbstractClient;
 
 /**
  * Client for interacting with Amazon S3
@@ -249,7 +249,7 @@ class S3Client extends AbstractClient
         }
 
         $expires = time() + (($duration) ? $duration : 60);
-        $plugin = $this->getEventManager()->getAttached('Guzzle\\Service\\Aws\\S3\\SignS3RequestPlugin');
+        $plugin = $this->getEventManager()->getAttached('Guzzle\\Aws\\S3\\SignS3RequestPlugin');
         $plugin = isset($plugin[0]) ? $plugin[0] : false;
         $isSigned = ($plugin != false);
         $xAmzHeaders = $torrentStr = '';

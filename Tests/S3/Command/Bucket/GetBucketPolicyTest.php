@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\Command\Bucket\GetBucketPolicy;
+use Guzzle\Aws\S3\Command\Bucket\GetBucketPolicy;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\Command\Bucket\GetBucketPolicy;
 class GetBucketPolicyTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\GetBucketPolicy
+     * @covers Guzzle\Aws\S3\Command\Bucket\GetBucketPolicy
      */
     public function testGetBucketPolicy()
     {

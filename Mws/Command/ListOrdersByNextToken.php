@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws\Command;
+namespace Guzzle\Aws\Mws\Command;
 
 /**
  * The ListOrdersByNextToken operation returns the next page of orders using the NextToken value that was

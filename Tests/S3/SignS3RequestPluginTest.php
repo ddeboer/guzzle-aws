@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3;
+namespace Guzzle\Aws\Tests\S3;
 
 use Guzzle\Common\Event\EventManager;
 use Guzzle\Http\Message\RequestFactory;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\S3Signature;
-use Guzzle\Service\Aws\S3\SignS3RequestPlugin;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Signature;
+use Guzzle\Aws\S3\SignS3RequestPlugin;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -18,7 +18,7 @@ use Guzzle\Service\Aws\S3\SignS3RequestPlugin;
 class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\SignS3RequestPlugin
+     * @covers Guzzle\Aws\S3\SignS3RequestPlugin
      */
     public function testSignsS3Requests()
     {
@@ -28,7 +28,7 @@ class SignS3RequestPluginTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\SignS3RequestPlugin
+     * @covers Guzzle\Aws\S3\SignS3RequestPlugin
      */
     public function testAddsAuthorizationHeaders()
     {

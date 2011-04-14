@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,11 +12,11 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class GetBucketVersioningTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\GetBucketVersioning
+     * @covers Guzzle\Aws\S3\Command\Bucket\GetBucketVersioning
      */
     public function testGetBucketVersioning()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketVersioning();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\GetBucketVersioning();
         $command->setBucket('test');
 
         $client = $this->getServiceBuilder()->get('test.s3');

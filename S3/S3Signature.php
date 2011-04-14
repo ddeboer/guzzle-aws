@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3;
+namespace Guzzle\Aws\S3;
 
-use Guzzle\Service\Aws\Signature\SignatureV1;
+use Guzzle\Aws\Signature\SignatureV1;
 
 /**
  * Amazon S3 Signature object

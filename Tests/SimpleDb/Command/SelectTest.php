@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
-use Guzzle\Service\Aws\SimpleDb\Command\Select;
+use Guzzle\Aws\SimpleDb\Command\Select;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\SimpleDb\Command\Select;
 class SelectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\Select
+     * @covers Guzzle\Aws\SimpleDb\Command\Select
      */
     public function testSelect()
     {
@@ -35,6 +35,6 @@ class SelectTest extends \Guzzle\Tests\GuzzleTestCase
             $command->getRequest()->getUrl()
         );
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
+        $this->assertInstanceOf('Guzzle\Aws\SimpleDb\Model\SelectIterator', $command->getResult());
     }
 }

@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,16 +12,16 @@ namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractBatchedCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractBatchedCommand
      */
     public function testHoldsBatchedItemCollection()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\BatchPutAttributes();
 
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\SimpleDb\\Model\\BatchedItemCollection', $command->getBatchedItemCollection());
+        $this->assertInstanceOf('Guzzle\\Aws\\SimpleDb\\Model\\BatchedItemCollection', $command->getBatchedItemCollection());
         $collection = $command->getBatchedItemCollection();
-        $newCollection = new \Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection();
+        $newCollection = new \Guzzle\Aws\SimpleDb\Model\BatchedItemCollection();
         $this->assertSame($command, $command->setBatchedItemCollection($newCollection));
 
         $this->assertNotSame($collection, $command->getBatchedItemCollection());
@@ -29,16 +29,16 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes::addItems
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes::clearItems
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes::getItems
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractBatchedCommand
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::setDomain
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchPutAttributes::addItems
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchPutAttributes::clearItems
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchPutAttributes::getItems
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractBatchedCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::setDomain
      */
     public function testQueuesItemsForSending()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\BatchPutAttributes();
 
         $this->assertSame($command, $command->setDomain('test'));
         $this->assertSame($command, $command->addItems(array(
@@ -74,25 +74,25 @@ class BatchPutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes::prepare
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::prepare
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchPutAttributes::prepare
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::prepare
      * @expectedException InvalidArgumentException
      */
     public function testThrowsExceptionWithNoDomain()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\BatchPutAttributes();
         $client->execute($command);
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes::prepare
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::prepare
+     * @covers Guzzle\Aws\SimpleDb\Command\BatchPutAttributes::prepare
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommandRequiresDomain::prepare
      */
     public function testPreparesCommand()
     {
         $client = $this->getServiceBuilder()->get('test.simple_db');
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\BatchPutAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\BatchPutAttributes();
         $command->setDomain('test');
         $command->addItems(array(
             'item_1' => array(

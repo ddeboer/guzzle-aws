@@ -1,13 +1,13 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\MWs\Model;
+namespace Guzzle\Aws\Tests\MWs\Model;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Model\ResultIterator;
-use Guzzle\Service\Aws\Mws\MwsBuilder;
+use Guzzle\Aws\Mws\Model\ResultIterator;
+use Guzzle\Aws\Mws\MwsBuilder;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Model\ResultIterator
+ * @covers Guzzle\Aws\Mws\Model\ResultIterator
  */
 class ResultIteratorTest extends GuzzleTestCase
 {

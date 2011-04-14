@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
-use Guzzle\Service\Aws\S3\Command\Object\CompleteMultipartUpload;
+use Guzzle\Aws\S3\Command\Object\CompleteMultipartUpload;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\Command\Object\CompleteMultipartUpload;
 class CompleteMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\CompleteMultipartUpload
+     * @covers Guzzle\Aws\S3\Command\Object\CompleteMultipartUpload
      */
     public function testComplete()
     {
@@ -54,7 +54,7 @@ class CompleteMultipartUploadTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\CompleteMultipartUpload
+     * @covers Guzzle\Aws\S3\Command\Object\CompleteMultipartUpload
      * @expectedException Guzzle\Http\Message\BadResponseException
      */
     public function testCompleteFailed()

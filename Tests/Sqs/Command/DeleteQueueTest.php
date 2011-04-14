@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\Sqs\Command;
+namespace Guzzle\Aws\Tests\Sqs\Command;
 
-use Guzzle\Service\Aws\Sqs\Command\DeleteQueue;
+use Guzzle\Aws\Sqs\Command\DeleteQueue;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,8 +14,8 @@ use Guzzle\Service\Aws\Sqs\Command\DeleteQueue;
 class DeleteQueueTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\Sqs\Command\DeleteQueue
-     * @covers Guzzle\Service\Aws\Sqs\Command\AbstractQueueUrlCommand
+     * @covers Guzzle\Aws\Sqs\Command\DeleteQueue
+     * @covers Guzzle\Aws\Sqs\Command\AbstractQueueUrlCommand
      */
     public function testDeleteQueue()
     {

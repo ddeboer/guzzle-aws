@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws\Command;
+namespace Guzzle\Aws\Mws\Command;
 
 /**
  * The ListOrders operation returns a list of orders created or updated during a time frame that you specify. You

@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,12 +12,12 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class DeleteBucketTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\DeleteBucket
-     * @covers Guzzle\Service\Aws\S3\Command\AbstractS3BucketCommand
+     * @covers Guzzle\Aws\S3\Command\Bucket\DeleteBucket
+     * @covers Guzzle\Aws\S3\Command\AbstractS3BucketCommand
      */
     public function testDeleteBucket()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\DeleteBucket();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\DeleteBucket();
         $command->setBucket('test');
         $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'DeleteBucketResponse');

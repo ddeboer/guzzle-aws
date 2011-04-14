@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,12 +12,12 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class GetBucketLoggingTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLogging
-     * @covers Guzzle\Service\Aws\S3\Model\BucketLoggingStatus
+     * @covers Guzzle\Aws\S3\Command\Bucket\GetBucketLogging
+     * @covers Guzzle\Aws\S3\Model\BucketLoggingStatus
      */
     public function testGetBucketLogging()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLogging();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\GetBucketLogging();
         $command->setBucket('test');
 
         $client = $this->getServiceBuilder()->get('test.s3');
@@ -26,7 +26,7 @@ class GetBucketLoggingTest extends \Guzzle\Tests\GuzzleTestCase
 
         $this->assertEquals('http://test.s3.amazonaws.com/?logging', $command->getRequest()->getUrl());
         $this->assertEquals('GET', $command->getRequest()->getMethod());
-        $this->assertInstanceOf('Guzzle\\Service\\Aws\\S3\\Model\\BucketLoggingStatus', $command->getResult());
+        $this->assertInstanceOf('Guzzle\\Aws\\S3\\Model\\BucketLoggingStatus', $command->getResult());
 
         $status = $command->getResult();
 
@@ -38,11 +38,11 @@ class GetBucketLoggingTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\BucketLoggingStatus
+     * @covers Guzzle\Aws\S3\Model\BucketLoggingStatus
      */
     public function testGetBucketLoggingEnabled()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLogging();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\GetBucketLogging();
         $command->setBucket('test');
         $client = $this->getServiceBuilder()->get('test.s3');
         $this->setMockResponse($client, 'GetBucketLoggingEnabledResponse');

@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb\Command;
+namespace Guzzle\Aws\SimpleDb\Command;
 
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Service\Aws\SimpleDb\Model\SelectIterator;
+use Guzzle\Aws\SimpleDb\Model\SelectIterator;
 
 /**
  * Selects data from Amazon SimpleDB

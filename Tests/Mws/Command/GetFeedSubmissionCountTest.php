@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionCount
+ * @covers Guzzle\Aws\Mws\Command\GetFeedSubmissionCount
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetFeedSubmissionCountTest extends GuzzleTestCase
@@ -27,7 +27,7 @@ class GetFeedSubmissionCountTest extends GuzzleTestCase
             ))
             ->setSubmittedFromDate(new \DateTime('2011-01-01'))
             ->setSubmittedToDate(new \DateTime());
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionCount', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetFeedSubmissionCount', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

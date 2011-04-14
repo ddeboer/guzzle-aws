@@ -4,19 +4,19 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Command;
+namespace Guzzle\Aws\S3\Command;
 
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Object\AbstractRequestObject;
-use Guzzle\Service\Aws\S3\Model\Acl;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Object\AbstractRequestObject;
+use Guzzle\Aws\S3\Model\Acl;
 use Guzzle\Http\EntityBody;
 
 /**
  * Set the ACL of an object or bucket
  *
  * @guzzle bucket doc="Bucket" required="true"
- * @guzzle acl doc="ACL to set" required="true" type="class:Guzzle\Service\Aws\S3\Model\Acl"
+ * @guzzle acl doc="ACL to set" required="true" type="class:Guzzle\Aws\S3\Model\Acl"
  * @guzzle key doc="Object key (optional)"
  * @guzzle version_id doc="Version ID to set"
  *

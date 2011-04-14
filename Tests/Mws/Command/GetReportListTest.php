@@ -1,14 +1,14 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportList
- * @covers Guzzle\Service\Aws\Mws\Command\AbstractMwsCommand
- * @covers Guzzle\Service\Aws\Mws\Command\IterableInterface
+ * @covers Guzzle\Aws\Mws\Command\GetReportList
+ * @covers Guzzle\Aws\Mws\Command\AbstractMwsCommand
+ * @covers Guzzle\Aws\Mws\Command\IterableInterface
  * 
  * @author Harold Asbridge <harold@shoebacca.com>
  */
@@ -34,11 +34,11 @@ class GetReportListTest extends GuzzleTestCase
             ->setAvailableFromDate(new \DateTime('2011-01-01'))
             ->setAvailableToDate(new \DateTime());
         
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportList', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportList', $command);
 
         // Response should be a SimpleXMLElement
         $response = $client->execute($command);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Model\ResultIterator', $response);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Model\ResultIterator', $response);
 
     }
 }

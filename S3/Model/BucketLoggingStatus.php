@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Model;
+namespace Guzzle\Aws\S3\Model;
 
 /**
  * Contains information about the logging status of a bucket

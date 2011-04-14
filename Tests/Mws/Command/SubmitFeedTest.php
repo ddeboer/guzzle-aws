@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\SubmitFeed
+ * @covers Guzzle\Aws\Mws\Command\SubmitFeed
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class SubmitFeedTest extends GuzzleTestCase
@@ -20,7 +20,7 @@ class SubmitFeedTest extends GuzzleTestCase
             ->setFeedContent('asdf')
             ->setFeedType(Type\FeedType::PRODUCT_FEED)
             ->setPurgeAndReplace(true);
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\SubmitFeed', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\SubmitFeed', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

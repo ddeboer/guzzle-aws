@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionListByNextToken
+ * @covers Guzzle\Aws\Mws\Command\GetFeedSubmissionListByNextToken
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetFeedSubmissionListByNextTokenTest extends GuzzleTestCase
@@ -19,7 +19,7 @@ class GetFeedSubmissionListByNextTokenTest extends GuzzleTestCase
         $command = $client->getCommand('get_feed_submission_list_by_next_token')
             ->setNextToken('asdf');
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetFeedSubmissionListByNextToken', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetFeedSubmissionListByNextToken', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

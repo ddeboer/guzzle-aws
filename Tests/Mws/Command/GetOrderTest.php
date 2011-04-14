@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetOrder
- * @covers Guzzle\Service\Aws\Mws\Command\AbstractMwsOrderCommand
+ * @covers Guzzle\Aws\Mws\Command\GetOrder
+ * @covers Guzzle\Aws\Mws\Command\AbstractMwsOrderCommand
  */
 class GetOrderTest extends GuzzleTestCase
 {
@@ -21,7 +21,7 @@ class GetOrderTest extends GuzzleTestCase
                 'ASDF'
             ));
 
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetOrder', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetOrder', $command);
 
         $response = $client->execute($command);
 

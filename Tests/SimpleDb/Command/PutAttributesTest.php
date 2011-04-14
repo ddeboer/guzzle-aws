@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 use Guzzle\Common\Collection;
 
@@ -14,9 +14,9 @@ use Guzzle\Common\Collection;
 class PutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::addAttribute
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::addExpected
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::setAttributes
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::addAttribute
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::addExpected
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::setAttributes
      */
     public function testHoldsAttributes()
     {
@@ -62,10 +62,10 @@ class PutAttributesTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::addAttribute
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::addExpected
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::setAttributes
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\PutAttributes::build
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::addAttribute
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::addExpected
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::setAttributes
+     * @covers Guzzle\Aws\SimpleDb\Command\PutAttributes::build
      */
     public function testPreparesRequest()
     {

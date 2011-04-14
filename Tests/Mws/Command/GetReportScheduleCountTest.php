@@ -1,12 +1,12 @@
 <?php
 
-namespace Guzzle\Service\Aws\Tests\Mws\Command;
+namespace Guzzle\Aws\Tests\Mws\Command;
 
 use Guzzle\Tests\GuzzleTestCase;
-use Guzzle\Service\Aws\Mws\Type;
+use Guzzle\Aws\Mws\Type;
 
 /**
- * @covers Guzzle\Service\Aws\Mws\Command\GetReportScheduleCount
+ * @covers Guzzle\Aws\Mws\Command\GetReportScheduleCount
  * @author Harold Asbridge <harold@shoebacca.com>
  */
 class GetReportScheduleCountTest extends GuzzleTestCase
@@ -21,7 +21,7 @@ class GetReportScheduleCountTest extends GuzzleTestCase
             ->setReportTypeList(array(
                 Type\ReportType::MERCHANT_LISTINGS_REPORT
             ));
-        $this->assertInstanceOf('Guzzle\Service\Aws\Mws\Command\GetReportScheduleCount', $command);
+        $this->assertInstanceOf('Guzzle\Aws\Mws\Command\GetReportScheduleCount', $command);
 
         $response = $client->execute($command);
         $this->assertInstanceOf('\SimpleXMLElement', $response);

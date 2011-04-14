@@ -4,13 +4,13 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws;
+namespace Guzzle\Aws;
 
 use Guzzle\Common\Event\Observer;
 use Guzzle\Common\Event\Subject;
 use Guzzle\Http\Message\RequestInterface;
-use Guzzle\Service\Aws\Filter\AddRequiredQueryStringFilter;
-use Guzzle\Service\Aws\Filter\QueryStringSignatureFilter;
+use Guzzle\Aws\Filter\AddRequiredQueryStringFilter;
+use Guzzle\Aws\Filter\QueryStringSignatureFilter;
 
 class QueryStringAuthPlugin implements Observer
 {

@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\S3Client;
+use Guzzle\Aws\S3\S3Client;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,11 +14,11 @@ use Guzzle\Service\Aws\S3\S3Client;
 class PutBucketLoggingTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketLogging
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketLogging
      */
     public function testEnableLogging()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketLogging();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketLogging();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setTargetBucket('target'));
         $this->assertSame($command, $command->setTargetPrefix('logs_'));
@@ -35,11 +35,11 @@ class PutBucketLoggingTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketLogging
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketLogging
      */
     public function testDisableLogging()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketLogging();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketLogging();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->disableLogging());
 

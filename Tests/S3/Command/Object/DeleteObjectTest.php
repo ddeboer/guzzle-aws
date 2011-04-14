@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
+namespace Guzzle\Aws\Tests\S3\Command\Object;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,11 +12,11 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Object;
 class DeleteObjectTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Object\DeleteObject
+     * @covers Guzzle\Aws\S3\Command\Object\DeleteObject
      */
     public function testDeleteObject()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Object\DeleteObject();
+        $command = new \Guzzle\Aws\S3\Command\Object\DeleteObject();
         $command->setBucket('test')->setKey('key');
         $command->setMfa('testing');
         $command->setVersionId('123');

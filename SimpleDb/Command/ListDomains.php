@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb\Command;
+namespace Guzzle\Aws\SimpleDb\Command;
 
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\HttpException;
-use Guzzle\Service\Aws\SimpleDb\SimpleDbException;
+use Guzzle\Aws\SimpleDb\SimpleDbException;
 
 /**
  * List the domains owned by your account.

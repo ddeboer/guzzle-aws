@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws;
+namespace Guzzle\Aws;
 
 use Guzzle\Common\GuzzleException;
 

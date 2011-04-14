@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3;
+namespace Guzzle\Aws\S3;
 
-use Guzzle\Service\Aws\AwsException;
+use Guzzle\Aws\AwsException;
 
 /**
  * Amazon S3 exception

@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,11 +12,11 @@ namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
 class GetBucketLocationTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLocation
+     * @covers Guzzle\Aws\S3\Command\Bucket\GetBucketLocation
      */
     public function testGetBucketLocation()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\GetBucketLocation();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\GetBucketLocation();
         $command->setBucket('test');
         
         $client = $this->getServiceBuilder()->get('test.s3');

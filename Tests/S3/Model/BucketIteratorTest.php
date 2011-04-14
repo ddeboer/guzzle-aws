@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\Model\BucketIterator;
+use Guzzle\Aws\S3\Model\BucketIterator;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\S3\Model\BucketIterator;
 class BucketIteratorTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\BucketIterator
+     * @covers Guzzle\Aws\S3\Model\BucketIterator
      * @covers Guzzle\Service\ResourceIterator
      */
     public function testDecideMarker()
@@ -39,9 +39,9 @@ class BucketIteratorTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Model\BucketIterator
+     * @covers Guzzle\Aws\S3\Model\BucketIterator
      * @covers Guzzle\Service\ResourceIterator
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\ListBucket
+     * @covers Guzzle\Aws\S3\Command\Bucket\ListBucket
      */
     public function testSendsSubequentCalls()
     {

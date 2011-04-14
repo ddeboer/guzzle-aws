@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Mws\Model\Feed;
+namespace Guzzle\Aws\Mws\Model\Feed;
 
-use Guzzle\Service\Aws\Mws\MwsClient;
+use Guzzle\Aws\Mws\MwsClient;
 use Guzzle\Common\XmlElement;
 
 /**

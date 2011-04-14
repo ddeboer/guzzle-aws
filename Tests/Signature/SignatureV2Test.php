@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\Signature;
+namespace Guzzle\Aws\Tests\Signature;
 
-use Guzzle\Service\Aws\Signature\SignatureV2;
+use Guzzle\Aws\Signature\SignatureV2;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -35,7 +35,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignReturnsEmptyString()
     {
@@ -45,7 +45,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignAlternateSort()
     {
@@ -63,7 +63,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignIgnoreVariable()
     {
@@ -81,7 +81,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignNullParameters()
     {
@@ -95,7 +95,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignEncode()
     {
@@ -109,7 +109,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2::calculateStringToSign
+     * @covers Guzzle\Aws\Signature\SignatureV2::calculateStringToSign
      */
     public function testCalculateStringToSignEmptyRequest()
     {
@@ -117,7 +117,7 @@ class SignatureV2Test extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\Signature\SignatureV2
+     * @covers Guzzle\Aws\Signature\SignatureV2
      */
     public function testHashingAlgorithms()
     {

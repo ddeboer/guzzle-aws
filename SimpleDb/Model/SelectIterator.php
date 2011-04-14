@@ -4,11 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\SimpleDb\Model;
+namespace Guzzle\Aws\SimpleDb\Model;
 
 use Guzzle\Service\ResourceIterator;
-use Guzzle\Service\Aws\SimpleDb\Command\Select;
-use Guzzle\Service\Aws\SimpleDb\SimpleDbClient;
+use Guzzle\Aws\SimpleDb\Command\Select;
+use Guzzle\Aws\SimpleDb\SimpleDbClient;
 
 /**
  * Iterates over the items in a domain using the Select action

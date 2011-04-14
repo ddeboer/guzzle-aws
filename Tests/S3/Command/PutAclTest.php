@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command;
+namespace Guzzle\Aws\Tests\S3\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -15,17 +15,17 @@ class PutAclTest extends \Guzzle\Tests\GuzzleTestCase
 
     public function setUp()
     {
-        $this->_acl = new \Guzzle\Service\Aws\S3\Model\Acl();
+        $this->_acl = new \Guzzle\Aws\S3\Model\Acl();
         $this->_acl->getGrantList()->addGrant('CanonicalUser', '8a6925ce4adf588a453214a379004fef', 'FULL_CONTROL');
         $this->_acl->setOwnerId('123');
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\PutAcl
+     * @covers Guzzle\Aws\S3\Command\PutAcl
      */
     public function testPutObjectAcl()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\PutAcl();
+        $command = new \Guzzle\Aws\S3\Command\PutAcl();
         $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test')->setKey('key')->setAcl($this->_acl);
         $command->setVersionId('1234');
@@ -41,11 +41,11 @@ class PutAclTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\PutAcl
+     * @covers Guzzle\Aws\S3\Command\PutAcl
      */
     public function testPutBucketAcl()
     {
-        $command = new \Guzzle\Service\Aws\S3\Command\PutAcl();
+        $command = new \Guzzle\Aws\S3\Command\PutAcl();
         $client = $this->getServiceBuilder()->get('test.s3');
         $command->setBucket('test')->setAcl($this->_acl);
         $this->setMockResponse($client, 'PutObjectAclResponse');

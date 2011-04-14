@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Model;
+namespace Guzzle\Aws\Tests\SimpleDb\Model;
 
-use Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection;
+use Guzzle\Aws\SimpleDb\Model\BatchedItemCollection;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,10 +14,10 @@ use Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection;
 class BatchedItemCollectionTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection::getIterator
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection::addItems
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection::count
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection::getIterator
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection::addItems
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection::count
      */
     public function testIsLikeAnArray()
     {
@@ -48,7 +48,7 @@ class BatchedItemCollectionTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection
      */
     public function testHoldsItems()
     {
@@ -105,7 +105,7 @@ class BatchedItemCollectionTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Model\BatchedItemCollection::getItems
+     * @covers Guzzle\Aws\SimpleDb\Model\BatchedItemCollection::getItems
      */
     public function testConvertsToQueryParams()
     {

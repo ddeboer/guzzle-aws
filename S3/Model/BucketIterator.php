@@ -4,12 +4,12 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\S3\Model;
+namespace Guzzle\Aws\S3\Model;
 
 use Guzzle\Service\ResourceIterator;
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Bucket\ListBucket;
-use Guzzle\Service\Aws\S3\S3Exception;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Bucket\ListBucket;
+use Guzzle\Aws\S3\S3Exception;
 
 /**
  * Iterates over the keys in a bucket

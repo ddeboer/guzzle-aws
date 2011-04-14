@@ -4,9 +4,9 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\Sqs\Command;
+namespace Guzzle\Aws\Tests\Sqs\Command;
 
-use Guzzle\Service\Aws\Sqs\Command\ChangeMessageVisibility;
+use Guzzle\Aws\Sqs\Command\ChangeMessageVisibility;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -14,7 +14,7 @@ use Guzzle\Service\Aws\Sqs\Command\ChangeMessageVisibility;
 class ChangeMessageVisibilityTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\Sqs\Command\ChangeMessageVisibility
+     * @covers Guzzle\Aws\Sqs\Command\ChangeMessageVisibility
      */
     public function testChangeMessageVisibility()
     {

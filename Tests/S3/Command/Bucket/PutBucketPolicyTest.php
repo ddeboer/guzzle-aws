@@ -4,10 +4,10 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\S3\Command\Bucket;
+namespace Guzzle\Aws\Tests\S3\Command\Bucket;
 
-use Guzzle\Service\Aws\S3\S3Client;
-use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketPolicy;
+use Guzzle\Aws\S3\S3Client;
+use Guzzle\Aws\S3\Command\Bucket\PutBucketPolicy;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -15,7 +15,7 @@ use Guzzle\Service\Aws\S3\Command\Bucket\PutBucketPolicy;
 class PutBucketPolicyTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\S3\Command\Bucket\PutBucketPolicy
+     * @covers Guzzle\Aws\S3\Command\Bucket\PutBucketPolicy
      */
     public function testPutBucketPolicy()
     {
@@ -37,7 +37,7 @@ class PutBucketPolicyTest extends \Guzzle\Tests\GuzzleTestCase
 
         $encodedPolicy = json_encode($policy);
         
-        $command = new \Guzzle\Service\Aws\S3\Command\Bucket\PutBucketPolicy();
+        $command = new \Guzzle\Aws\S3\Command\Bucket\PutBucketPolicy();
         $this->assertSame($command, $command->setBucket('test'));
         $this->assertSame($command, $command->setPolicy($policy));
         

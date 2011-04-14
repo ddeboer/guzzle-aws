@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
+namespace Guzzle\Aws\Tests\SimpleDb\Command;
 
 /**
  * @author Michael Dowling <michael@guzzlephp.org>
@@ -12,13 +12,13 @@ namespace Guzzle\Service\Aws\Tests\SimpleDb\Command;
 class DeleteAttributesTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\DeleteAttributes
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractAttributeCommand
-     * @covers Guzzle\Service\Aws\SimpleDb\Command\AbstractSimpleDbCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\DeleteAttributes
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractAttributeCommand
+     * @covers Guzzle\Aws\SimpleDb\Command\AbstractSimpleDbCommand
      */
     public function testDeleteAttributes()
     {
-        $command = new \Guzzle\Service\Aws\SimpleDb\Command\DeleteAttributes();
+        $command = new \Guzzle\Aws\SimpleDb\Command\DeleteAttributes();
         $this->assertSame($command, $command->setDomain('test'));
         $this->assertSame($command, $command->setItemName('item_name'));
         $this->assertSame($command, $command->setAttributeNames(array('attr1', 'attr2')));
