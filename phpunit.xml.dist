@@ -6,7 +6,7 @@
             Change the following value to the path of your Guzzle installation
             e.g. /Users/michael/projects/guzzle
         -->
-        <server name="GUZZLE" value="/path/to/guzzle" />
+        <server name="GUZZLE" value="${path_to_guzzle}" />
 
         <!--
             This value specifies the path to the test services.xml file that
